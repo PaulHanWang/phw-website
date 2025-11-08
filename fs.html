@@ -1,0 +1,709 @@
+<!DOCTYPE HTML>
+<!--
+	Formula Student page for paulhanwang.co.uk
+	Created by Paul Wang
+	Adapted from html5up.net | @ajlkn
+	Created 19/10/2025
+-->
+<html>
+
+<head>
+	<title>Formula Student - Paul Wang</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<link rel="icon" type="image/png" href="images\Logo\LogoBlackfillNoTrail.png">
+</head>
+
+<body class="EUFS_overview content-layer">
+
+	<video playsinline autoplay muted loop id="fixedVideo" class="full-screen-bg-media">
+		<source src="images\EUFS\EUFS 1.1.mp4" type="video/mp4">
+	</video>
+
+	<div id="page-wrapper" class="content-layer" style="opacity: 1; visibility: visible; z-index: 10;">
+
+		<!-- Header -->
+		<div id="header">
+
+			<!-- Inner -->
+			<div class="inner">
+				<header>
+					<h1 class="BatangasFont gradient-outline-text-title" style="color: rgb(255, 255, 255);">EDINBURGH
+						UNIVERSITY FORMULA STUDENT</a></h1>
+				</header>
+			</div>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<a id="logoLink" class="logo-link" href="#">
+					<img src="images/Logo/LogoBlackfill.png" alt="Company Logo" class="site-logo">
+				</a>
+				<ul>
+					<li class="BatangasFont"><a href="index.html">HOME</a></li>
+					<li class="BatangasFont">
+						<a href="fs.html">FORMULA STUDENT</a>
+						<ul>
+							<li class="BatangasFont"><a href="fs.html">Overview</a></li>
+							<li class="BatangasFont"><a href="fs.html#suspension-geometry-simulator">Suspension Geometry
+									Optimiser</a></li>
+							<li class="BatangasFont">
+								<a href="fs.html#suspension-design">Suspension Design & CAD &#187;</a>
+								<ul>
+									<li class="BatangasFont"><a href="fs.html#suspension-design">CAD &#40;Computer Aided
+											Design&#41;</a></li>
+									<li class="BatangasFont"><a href="fs.html#suspension-design">FEA &#40;Finite Element
+											Analysis&#41;</a></li>
+									<li class="BatangasFont"><a href="fs.html#suspension-design">Topology
+											Optimisation</a></li>
+								</ul>
+							</li>
+							<li class="BatangasFont"><a href="fs.html#point-mass-laptime-simulator">Point-Mass Laptime
+									Simulator</a></li>
+							<li class="BatangasFont"><a href="fs.html#manufacturing">Manufacturing</a></li>
+							<li class="BatangasFont"><a href="fs.html#testing">Testing & Driving</a></li>
+						</ul>
+					</li>
+					<li class="BatangasFont"><a href="sailing.html">SAILING</a></li>
+					<li class="BatangasFont"><a href="aviation.html">AVIATION</a></li>
+					<li class="BatangasFont">
+						<a href="art.html">CREATIVE ARTS</a>
+						<ul>
+							<li class="BatangasFont"><a href="art.html">Overview</a></li>
+							<li class="BatangasFont"><a href="art.html#unreal-engine">Unreal Engine Renders</a></li>
+							<li class="BatangasFont"><a href="art.html#cinematography">Cinematography & Photography</a>
+							</li>
+							<li class="BatangasFont">
+								<a href="art.html#logo">Graphic Design &#187;</a>
+								<ul>
+									<li class="BatangasFont"><a href="art.html#logo">Logo, Business Card, and Website
+											Design</a></li>
+									<li class="BatangasFont"><a href="art.html#eufs-poster">SISU 26E Poster</a></li>
+									<li class="BatangasFont"><a href="art.html#personal-poster">Personal Posters</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="BatangasFont">
+						<a href="me.html">ABOUT ME</a>
+						<ul>
+							<li class="BatangasFont"><a href="me.html">About Me</a></li>
+							<li class="BatangasFont"><a href="me.html#education">Education</a></li>
+							<li class="BatangasFont"><a href="me.html#recommendations">Letters of Recommendation</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+
+
+		<!-- Banner -->
+
+		<section id="gradientline" class="trigger-section">
+		</section>
+
+
+
+
+
+		<!-- Main -->
+		<div class="wrapper style1">
+
+			<div class="container">
+				<div class="row gtr-200">
+					<div class="col-4 col-12-mobile" id="sidebar">
+						<hr class="first" />
+						<section>
+							<header>
+								<h3><a href="https://www.eufs.co/" target="_blank">About EUFS</a></h3>
+							</header>
+							<p class="unjustify-text">
+								EUFS (Edinburgh University Formula Student) was established in 2014 by a group of
+								students of various disciplines at the University of Edinburgh. The team’s goal each
+								year is to design and build a single seat racing car to compete at multiple Formula
+								Student competition around the globe.
+							</p>
+						</section>
+						<hr />
+						<div class="sticky-projects-wrapper">
+							<section>
+								<header>
+									<h2>PROJECTS</a></h2>
+								</header>
+
+								<div class="row gtr-50">
+
+									<a href="#suspension-geometry-simulator" class="project-box"
+										style="background-color: #333333; display: flex;"
+										onmouseover="this.style.backgroundColor='#6128e677'"
+										onmouseout="this.style.backgroundColor='#333333'">
+										<div class="col-4">
+											<div class="image fit image-stretch project-image-bg"
+												style="background-image: url('images/EUFS/SGS/image (3).png');">
+											</div>
+										</div>
+										<div class="col-8">
+											<h4>Suspension Geometry Simulator</h4>
+											<p class="unjustify-text">
+												Created in MATLAB, <br> Simulink, and Simscape.
+											</p>
+										</div>
+									</a>
+
+
+
+									<a href="#suspension-design" class="project-box"
+										style="background-color: #333333; display: flex;"
+										onmouseover="this.style.backgroundColor='#6128e677'"
+										onmouseout="this.style.backgroundColor='#333333'">
+
+										<div class="col-4">
+											<div class="image fit image-stretch project-image-bg"
+												style="background-image: url('images/EUFS/Suspension_SW.png');">
+											</div>
+										</div>
+										<div class="col-8">
+											<h4>Suspension Design for SISU26E</h4>
+											<p class="unjustify-text">
+												Created in SolidWorks.
+											</p>
+										</div>
+									</a>
+
+
+									<a href="#point-mass-laptime-simulator" class="project-box"
+										style="background-color: #333333; display: flex;"
+										onmouseover="this.style.backgroundColor='#6128e677'"
+										onmouseout="this.style.backgroundColor='#333333'">
+										<div class="col-4">
+											<div class="image fit image-stretch project-image-bg"
+												style="background-image: url('images/EUFS/PMLTS_GGV.png');">
+											</div>
+										</div>
+										<div class="col-8">
+											<h4>Point-Mass Laptime Simulator</h4>
+											<p class="unjustify-text">
+												Created in MATLAB.
+											</p>
+										</div>
+									</a>
+
+									<a href="#manufacturing" class="project-box"
+										style="background-color: #333333; display: flex;"
+										onmouseover="this.style.backgroundColor='#6128e677'"
+										onmouseout="this.style.backgroundColor='#333333'">
+										<div class="col-4">
+											<div class="image fit image-stretch project-image-bg"
+												style="background-image: url('images/EUFS/Wheel Assembly.jpg');">
+											</div>
+										</div>
+										<div class="col-8">
+											<h4>Manufacturing Experience</h4>
+											<p class="unjustify-text">
+												Suspension, Brakes, and Wheel Assemblies.
+											</p>
+										</div>
+									</a>
+
+									<a href="#testing" class="project-box"
+										style="background-color: #333333; display: flex;"
+										onmouseover="this.style.backgroundColor='#6128e677'"
+										onmouseout="this.style.backgroundColor='#333333'">
+										<div class="col-4">
+											<div class="image fit image-stretch project-image-bg"
+												style="background-image: url('images/EUFS/LTK_5376.JPG');">
+											</div>
+										</div>
+										<div class="col-8">
+											<h4>Testing & Driving</h4>
+											<p class="unjustify-text">
+												Suspension, Brakes, and Wheel Assemblies.
+											</p>
+										</div>
+									</a>
+
+							</section>
+						</div>
+					</div>
+					<div class="col-8 col-12-mobile imp-mobile" id="content">
+						<article id="main">
+							<header>
+								<h2>Engineering made real.</a></h2>
+								<p>
+									Really real.
+								</p>
+							</header>
+							<a class="image featured"><img src="images\EUFS\LTK_53332~2.jpg" alt="" />
+								<figcaption class="image-description">Testing session, Oct 26 2025, Knockhill Racing
+									Circuit — Photo by Alya Ozturk</figcaption>
+							</a>
+							<p>
+								In October 2024, I joined Edinburgh University Formula Student as a vehicle dynamics
+								engineer. Since then, my
+								involvement has far surpassed my expectations. In December 2024, I was tasked with
+								modelling and designing the
+								suspension, steering, and shock assemblies for our SISU 26E concept class car. At the
+								Formula Student UK competition
+								hosted at Silverstone Circuit, I was able to put my involvement to the test,
+								participating in scrutineerings
+								and design presentations. In September 2025, I was honoured to be chosen as the driver
+								for the team, and participated
+								in testing sessions at Knockhill Racing Circuit, thrashing our SISU 25D car on slicks in
+								the wet.
+								<br>
+
+
+							</p>
+							<hr />
+
+							<section>
+								<header>
+									<h2><a id="suspension-geometry-simulator">Suspension Geometry Simulator</a></h2>
+								</header>
+
+								<div class="video-responsive"><iframe width="560" height="315"
+										src="https://www.youtube.com/embed/hOxnMGAPc74?si=Mbt_-3LmKmlPLCq_&amp;start=38"
+										title="YouTube video player" frameborder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+										referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+								<p>
+									The Suspension Geometry Simulator is a project developed to model and optimise the
+									suspension geometry for the SISU 26E concept class car.
+									Built in MATLAB, Simulink, and Simscape from scratch, the program sweeps through
+									every possible suspension geometry and measures its performance.
+									The data is then processed and the final suspension geometry is used as the basis of
+									the car's<a href="#suspension-design"> suspension design in SolidWorks</a>.
+									<br>
+									<br>
+
+								</p>
+								<section>
+
+									<header>
+										<h3>Roll Simulation</h3>
+									</header>
+									<figure id="videoFigure" class="image featured"><video playsinline autoplay muted
+											loop id="fixedVideo" style="max-width: 100%; height: auto;">
+											<source src="images\EUFS\SGS\EUFS Roll gif.mp4" type="video/mp4">
+										</video>
+										<figcaption class="image-description">ROLL simulation output from SGS in
+											Simscape — GIF by Paul Wang</figcaption>
+									</figure>
+
+									<figure id="videoFigure" class="image left"><video playsinline autoplay muted loop
+											id="fixedVideo" style="max-width: 100%; height: auto;">
+											<source
+												src="images/EUFS/SGS/Mechanics Explorers - Mechanics Explorer-SGS_3D_2_4WHEEL_DEMO 2025-04-24 23-58-25.mp4"
+												type="video/mp4">
+										</video>
+										<figcaption class="image-description">ROLL CENTER simulation output from SGS in
+											Simscape — GIF by Paul Wang</figcaption>
+									</figure>
+									<p class="unjustify-text">
+										<br>
+										Models camber, caster, and toe and the movement of roll centers during roll.
+										Used to identify optimal static camber through cornering properties.
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+									</p>
+								</section>
+								<section>
+
+									<header>
+										<h3>Heave Simulation</h3>
+									</header>
+
+
+									<figure id="videoFigure" class="image featured"><video playsinline autoplay muted
+											loop id="fixedVideo" style="max-width: 100%; height: auto;">
+											<source
+												src="images\EUFS\SGS\Mechanics Explorers - Mechanics Explorer-SGS_3D_2_4WHEEL 2025-04-23 23-04-03.mp4"
+												type="video/mp4">
+										</video>
+										<figcaption class="image-description">HEAVE simulation output from SGS in
+											Simscape — GIF by Paul Wang</figcaption>
+									</figure>
+									<figure id="videoFigure" class="image left"><video playsinline autoplay muted loop
+											id="fixedVideo" style="max-width: 100%; height: auto;">
+											<source
+												src="images\EUFS\SGS\Mechanics Explorer-SGS_3D_2_4WHEEL_DEMO 2025-04-23 21-53-33.mp4"
+												type="video/mp4">
+										</video>
+										<figcaption class="image-description">HEAVE simulation output with bodypanels
+											and wings from SGS in Simscape — GIF by Paul Wang</figcaption>
+									</figure>
+									<p class="unjustify-text">
+										<br>
+										Models camber, caster, and toe and the movement of roll centers during heave.
+										Used for spring rates, motion ratios, damping coefficients, Aerodynamics, and
+										stability calculations.
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+
+									</p>
+								</section>
+
+								<a class="image right"><img src="images\EUFS\SGS\Vehicle dynamics-FS SGS 2.gif"
+										alt="" />
+									<figcaption class="image-description">PITCH simulation output from SGS in Simscape —
+										GIF by Paul Wang</figcaption>
+								</a>
+								<a class="image right"><img
+										src="images\EUFS\SGS\Mechanics Explorers - Mechanics Explorer-SGS_3D_2_4WHEEL_DEMO 2025-04-25 00-07-39.gif"
+										alt="" />
+									<figcaption class="image-description">PITCH CENTER simulation output from SGS in
+										Simscape — GIF by Paul Wang</figcaption>
+								</a>
+								<header>
+									<h3>Pitch & Pitch Center Simulation</h3>
+								</header>
+								<p class="unjustify-text">
+									Models the effects of camber, caster, and toe when the car pitches
+									forward and backward.
+									<br>
+									<br>
+									<br>
+									<br>
+
+								</p>
+							</section>
+							<section>
+
+
+								<p class="unjustify-text">
+									Models the movement of pitch centers during dive, squat, and lift, and
+									provides justification for anti-dive and anti-lift geometry.
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+								</p>
+							</section>
+							<section>
+								<a class="image left"><img
+										src="images\EUFS\SGS\Mechanics Explorers - Mechanics Explorer-SGS_3D_1 2025-04-24 23-04-54.gif"
+										alt="" />
+									<figcaption class="image-description">ANTI-ACKERMANN simulation output from SGS in
+										Simscape — GIF by Paul Wang</figcaption>
+								</a>
+								<figure id="videoFigure" class="image left"><video playsinline autoplay muted loop
+										id="fixedVideo" style="max-width: 100%; height: auto;">
+										<source
+											src="images\EUFS\SGS\MATLAB R2024b - academic use 2025-03-30 18-58-14.mp4"
+											type="video/mp4">
+									</video>
+									<figcaption class="image-description">STEERING simulation output from SGS in
+										Simscape — GIF by Paul Wang</figcaption>
+								</figure>
+								<header>
+									<h3>Steering and Anti-Ackermann Simulation</h3>
+								</header>
+								<p class="unjustify-text">
+									Models camber, caster, and toe during steering, and measures anti-ackermann.
+									The anti-ackermann is combined with our in-house tyre magic formula data to
+									optimise steering geometry and anti-ackermann.
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+								</p>
+							</section>
+
+							<hr />
+							<section>
+								<header>
+									<h2><a id="suspension-design">Suspension Design for SISU26E</a></h2>
+								</header>
+								<a class="image featured"><img src="images\EUFS\1757695596625.jpg" alt="" />
+									<figcaption class="image-description">Suspension assembly of SISU 26E in SolidWorks
+										— Photo by Paul Wang</figcaption>
+								</a>
+								<p>
+
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>CAD</h3>
+								</header>
+								<p>
+
+								</p>
+								<p>
+
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>FEA</h3>
+								</header>
+								<p>
+
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>Topology Optimisation</h3>
+								</header>
+								<p>
+
+								</p>
+								<p>
+
+								</p>
+							</section>
+							<hr />
+							<section>
+								<header>
+									<h2><a id="point-mass-laptime-simulator">Point-Mass Laptime Simulator</a></h2>
+								</header>
+								<a class="image featured"><img src="images\EUFS\PMLTS_GGV.png" alt="" />
+									<figcaption class="image-description">GGV plot of SISU 26E in PMLTS using Matlab. —
+										Photo by Paul Wang</figcaption>
+								</a>
+								<p>
+
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>GGV</h3>
+								</header>
+								<p>
+
+								</p>
+								<p>
+
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>Velocity throughout the lap</h3>
+								</header>
+								<p>
+
+								</p>
+							</section>
+							<hr />
+							<section>
+								<header>
+									<h2><a id="manufacturing">Manufacturing</a></h2>
+								</header>
+								<a class="image featured"><img src="images\EUFS\Wheel Assembly.jpg" alt="" />
+									<figcaption class="image-description">Right rear wheel and suspension assembly of
+										SISU 25D — Photo by Paul Wang</figcaption>
+								</a>
+								<p>
+
+								</p>
+								<p>
+
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>3D Printing</h3>
+								</header>
+								<p>
+
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>Laser Cutting</h3>
+								</header>
+								<p>
+
+								</p>
+								<p>
+
+								</p>
+							</section>
+							<hr />
+							<section>
+								<header>
+									<h2><a id="testing">Testing & Driving</a></h2>
+								</header>
+								<a class="image featured"><img src="images\EUFS\LTK_5338.JPG" alt="" />
+									<figcaption class="image-description">Testing session, Oct 26 2025, Knockhill Racing
+										Circuit — Photo by Alya Ozturk</figcaption>
+								</a>
+								<p>
+
+								</p>
+							</section>
+
+
+						</article>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+
+
+				<div class="row">
+					<div class="col-12">
+
+						<!-- Contact -->
+						<section class="contact">
+							<header>
+								<h3>Want to find out more or get in contact?</h3>
+							</header>
+							<p>LinkedIn is the best option, but feel free to check out any of the following!</p>
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/paulhanwang/" target="_blank"
+										class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://github.com/PaulHanWang" target="_blank"
+										class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li>
+									<a href="javascript:void(0);" class="icon solid fa-envelope email-copy-link"
+										onclick="navigator.clipboard.writeText('paulhanwang@gmail.com')">
+										<span class="label">Email</span>
+										<span class="copied-message">Copy to clipboard</span>
+									</a>
+								</li>
+
+							</ul>
+						</section>
+
+						<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; Paul Wang. All rights reserved.</li>
+								<li>Designed by Paul Wang.</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div> <!-- Footer -->
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const logoLink = document.getElementById('logoLink');
+
+			const gradientLineTarget = document.getElementById('gradientline');
+
+			let scrollThreshold = 0;
+
+			function calculateThreshold() {
+				scrollThreshold = gradientLineTarget ? gradientLineTarget.offsetTop : 0;
+			}
+
+			function handleScroll() {
+				if (window.scrollY >= scrollThreshold) {
+					if (!logoLink.classList.contains('logo-fixed')) {
+						logoLink.classList.add('logo-fixed');
+					}
+				} else {
+					if (logoLink.classList.contains('logo-fixed')) {
+						logoLink.classList.remove('logo-fixed');
+					}
+				}
+			}
+
+			calculateThreshold();
+
+			window.addEventListener('resize', () => {
+				setTimeout(() => {
+					calculateThreshold();
+					handleScroll();
+				}, 100);
+			});
+
+
+			window.addEventListener('scroll', handleScroll);
+
+			handleScroll();
+		});
+
+		//######################################//
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const activeClass = 'active-project';
+			const projectTiles = document.querySelectorAll('.project-box');
+
+			const contentTargets = document.querySelectorAll(
+				'#suspension-geometry-simulator, #suspension-design, #point-mass-laptime-simulator, #manufacturing, #testing'
+			);
+
+			const observerOptions = {
+				root: null,
+				rootMargin: '0px 0px -50% 0px',
+				threshold: 0
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					const targetId = entry.target.id;
+
+					const correspondingTile = document.querySelector(`.project-box[href="#${targetId}"]`);
+
+					if (correspondingTile) {
+						if (entry.isIntersecting) {
+
+							projectTiles.forEach(tile => tile.classList.remove(activeClass));
+							correspondingTile.classList.add(activeClass);
+						}
+
+					}
+				});
+			}, observerOptions);
+
+			contentTargets.forEach(target => {
+				if (target) {
+					observer.observe(target);
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
