@@ -20,6 +20,8 @@
 
 <body class="homepage is-preload">
 
+
+
 	<div id="page-wrapper">
 
 		<!-- Header -->
@@ -316,6 +318,7 @@
 	<script src="assets/js/main.js"></script>
 
 	<script>
+		// top left logo shrink
 		document.addEventListener('DOMContentLoaded', () => {
 			const logoLink = document.getElementById('logoLink');
 			const bannerTarget = document.getElementById('banner');
@@ -354,6 +357,33 @@
 			window.addEventListener('scroll', handleScroll);
 
 			handleScroll();
+		});
+
+
+
+
+
+		//Opening GIF
+		document.addEventListener('DOMContentLoaded', function () {
+			const element = document.querySelector('body.homepage #header');
+
+			const gifUrl = "../../images/Logo/PHWE Logo 4.2 LONG.gif";
+
+			const timestamp = new Date().getTime();
+
+			const newGifUrl = `url('${gifUrl}?t=${timestamp}')`;
+
+
+			if (element) {
+				const style = document.createElement('style');
+				style.textContent = `
+                body.homepage #header:after {
+                    /* This line injects the GIF URL and forces the restart */
+                    background-image: ${newGifUrl} !important; 
+                }
+            `;
+				document.head.appendChild(style);
+			}
 		});
 	</script>
 
