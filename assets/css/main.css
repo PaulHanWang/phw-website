@@ -1987,7 +1987,10 @@ footer {
 	align-items: flex-start !important;
 
 	padding-bottom: 15px !important;
+
+
 }
+
 
 
 .project-box .col-4 {
@@ -2478,7 +2481,7 @@ body.homepage #header h1 {
 
 body.homepage #header:after {
 	content: '';
-	background: url("../../images/Logo/Logo.png");
+	/*background: url("../../images/Logo/PHWE Logo 4.2 LONG.gif");*/
 	background-size: contain;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -4041,12 +4044,14 @@ body {
 	text-decoration: none;
 	margin-bottom: 10px;
 
-	transition: background-color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+
 }
 
 .project-box:hover {
 	background-color: #444444;
 	text-decoration: none;
+	transform: skewX(-15deg) translateX(15px);
 }
 
 .project-box>.project-content {
@@ -4097,6 +4102,7 @@ body {
 
 .project-box.active-project {
 	background-color: #6128e677 !important;
+	transform: skewX(-15deg) translateX(15px);
 }
 
 
