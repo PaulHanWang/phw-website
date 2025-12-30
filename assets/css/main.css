@@ -2734,6 +2734,18 @@ body.homepage.is-preload #header:after {
 	background: linear-gradient(90deg, #19d7fb, #3528e6);
 }
 
+/* New style for the far-right text */
+.gradient-subtext {
+    position: absolute;
+    top: 12px;           /* 8px for the line + 4px gap */
+    right: 15px;         /* Distance from the right edge */
+    color: #ffffff;
+    font-size: 0.5em;   /* Makes the text small */
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
 #gradientline header>p {
 	margin-bottom: 0;
 }
