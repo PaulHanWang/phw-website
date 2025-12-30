@@ -2493,14 +2493,14 @@ body.homepage #header:after {
 	height: 100%;
 	opacity: 0;
 	pointer-events: none;
-	-moz-transition: opacity 2s ease-in-out;
-	-webkit-transition: opacity 2s ease-in-out;
-	-ms-transition: opacity 2s ease-in-out;
-	transition: opacity 2s ease-in-out;
-	-moz-transition-delay: 0.5s;
-	-webkit-transition-delay: 0.5s;
-	-ms-transition-delay: 0.5s;
-	transition-delay: 0.5s;
+	-moz-transition: opacity 5s ease-in-out;
+	-webkit-transition: opacity 5s ease-in-out;
+	-ms-transition: opacity 5s ease-in-out;
+	transition: opacity 5s ease-in-out;
+	-moz-transition-delay: 5.5s;
+	-webkit-transition-delay: 5.5s;
+	-ms-transition-delay: 5.5s;
+	transition-delay: 5.5s;
 	z-index: 1000000;
 }
 

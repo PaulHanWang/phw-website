@@ -2503,7 +2503,7 @@ body.homepage #header:after {
 	-moz-transition-delay: 0.5s;
 	-webkit-transition-delay: 0.5s;
 	-ms-transition-delay: 0.5s;
-	transition-delay: 0.5s;
+	transition-delay: 1s;
 	z-index: 1000000;
 }
 
@@ -3587,15 +3587,36 @@ body.homepage.is-preload #header:after {
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	background: linear-gradient(90deg, #19d7fb80, #3528e680);
 
-	padding: 0px;
 	border-radius: 5px;
+
+	display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 5px;
 }
 
 
 .logo-fixed .site-logo {
 	transform: skewX(15deg);
+	margin-bottom: 0; 
 }
 
+
+.top-label {
+    display: none;
+}
+
+
+.logo-fixed .top-label {
+    display: block;
+    font-weight: bold;
+    color: rgb(233, 233, 233); 
+    font-size: 24px;
+    letter-spacing: 1px;
+    
+    margin-top: -10px;
+    line-height: 1;
+}
 
 .has-sidebar .top-banner,
 

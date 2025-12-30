@@ -39,8 +39,9 @@
 
 			<!-- Nav -->
 			<nav id="nav">
-				<a id="logoLink" class="logo-link" href="#">
+				<a id="logoLink" class="logo-link" href="index.html">
 					<img src="images/Logo/LogoBlackfill.png" alt="Company Logo" class="site-logo">
+					<span class="top-label">TOP &#8613;</span>
 				</a>
 				<ul>
 					<li class="BatangasFont"><a href="index.html">HOME</a></li>
@@ -326,10 +327,12 @@
 				if (window.scrollY >= scrollThreshold) {
 					if (!logoLink.classList.contains('logo-fixed')) {
 						logoLink.classList.add('logo-fixed');
+						logoLink.setAttribute('href', '#');
 					}
 				} else {
 					if (logoLink.classList.contains('logo-fixed')) {
 						logoLink.classList.remove('logo-fixed');
+						logoLink.setAttribute('href', 'index.html');
 					}
 				}
 			}
