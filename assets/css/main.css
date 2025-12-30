@@ -4318,3 +4318,111 @@ body.content-layer {
         border-radius: 20px;
     }
 }
+
+/*IMAGE CAROUSEL*/
+
+.carousel-component {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 50px auto; /* Centers the whole component */
+}
+
+.carousel-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Featured Image - Remains full width (900px) */
+.main-display {
+    width: 100%;
+    background: #111;
+    margin-bottom: 15px;
+}
+
+.image-featured {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Thumbnail Carousel - Container is narrower to force thumbnails to be smaller/shorter */
+.carousel-container {
+    width: 100%;
+    /*max-width: 700px; /* Adjust this number: Smaller = Shorter height */
+	max-height: 100px;
+    margin: 0 auto 20px auto; /* Centers the carousel strip */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.thumbnail-track {
+	max-height: 100px;
+	aspect-ratio: 4 / 3;
+    display: flex;
+    gap: 5px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 5px 0;
+    flex: 1; /* Allows track to take up all space between arrows */
+}
+
+.thumb {
+    /* Corrected Flex: 0 grow, 0 shrink, and the math for exactly 7 items */
+    flex: 0 0 calc((100% - (6 * 5px)) / 7); 
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s, outline 0.1s;
+    background-color: #fff;
+}
+
+/* Interaction Styles */
+.thumb.active {
+    outline: 4px solid #8800FF; 
+    opacity: 0.6;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    background: none;
+    border: none;
+    color: #19d7fb; 
+    font-size: 2.5rem; /* Slightly smaller to match shorter height */
+    cursor: pointer;
+    padding: 0 5px;
+    transition: transform 0.2s;
+    line-height: 1;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+.nav-btn.hidden {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* MOBILE VERSION */
+@media (max-width: 600px) {
+    .carousel-container {
+        flex-wrap: wrap;           /* Allows the buttons to move below the images */
+        justify-content: center;   /* Centers the side-by-side buttons */
+        max-height: none;          /* Allows the container to grow vertically */
+        gap: 0px;                 /* Space between the two buttons */
+    }
+
+    .thumbnail-track {
+        flex: 0 0 100%;            /* Forces the track to take the full top width */
+        order: -1;                 /* Ensures the images stay above the buttons */
+    }
+
+    .nav-btn {
+        margin-top: 5px;          /* Adds breathing room below the images */
+    }
+}

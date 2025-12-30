@@ -250,41 +250,99 @@
 									<h2><a id="unreal-engine">Unreal Engine Renders</a></h2>
 								</header>
 
-								<a class="image featured"><img src="images\EUFS\EUFS SISU 26E Render 1.png" alt="" />
-									<figcaption class="image-description">3D Render of SISU 26E concept class by
-										Edinburgh University Formula Student (CINEISO VIEW). Created by Paul Wang.
-									</figcaption>
-								</a>
-								<a class="image featured"><img src="images\Art\LS_CameraMotion.0401 - Copy (1).png"
-										alt="" />
-									<figcaption class="image-description">3D Render of SISU 26E concept class by
-										Edinburgh University Formula Student (TOP VIEW). Created by Paul Wang.
-									</figcaption>
-								</a>
-								<a class="image featured"><img src="images\Art\LS_CameraMotion.1001.png" alt="" />
-									<figcaption class="image-description">3D Render of SISU 26E concept class by
-										Edinburgh University Formula Student (FRONT VIEW). Created by Paul Wang.
-									</figcaption>
-								</a>
-								<a class="image featured"><img src="images\Art\LS_CameraMotion.0015.png" alt="" />
-									<figcaption class="image-description">3D Render of SISU 26E concept class by EUFS
-										with no livery, used as the official render of the car in the FSUK 2025 design
-										presentation. Created by Paul Wang.</figcaption>
-								</a>
+								
 								<p class="unjustify-text">
-									Created in Unreal Engine 5.5, these renders were made using the real CAD files of 
-									the SISU 26E design, the new concept class vehicle by <a
-										href="fs.html"> Edinburgh University Formula Student</a>.
-									They were used for the official posters of the team in the Formula Student UK design
-									competition, featuring special flax fibre bodypanels and an unpolished, raw material
-									look.
-									They were also later used as the base of the design of the <a href="#eufs-poster">EUFS
-										posters.</a>
-									<br>
-									<br>
-
+									Created in Unreal Engine 5.5, these renders were made using Pathtracer raytracing, usually with 9,216 light rays per pixel and 4 bounces per light ray. Each individual frame is rendered separately, with up to 1300 frames for a cinematic video, and then compiled, edited, and colour graded in Davinci Resolve. Each 1080p frame can take up to 5 minutes to render, and each 8k frame (like those used in the official FSUK posters) can take up to 8 hours for ONE image.
+	
 								</p>
 								<section>
+
+									<section class="carousel-component">
+										<h3 class="carousel-title">SISU 26E with experimental livery</h3>
+										
+										<div class="main-display">
+											<img src="images/EUFS/EUFS SISU 26E Render 1.png" alt="Featured" class="image-featured">
+										</div>
+
+										<div class="carousel-container">
+											<button class="nav-btn" onclick="scrollCarousel(this, -1)">&#10094;</button>
+											
+											<div class="thumbnail-track">
+												<img src="images/EUFS/EUFS SISU 26E Render 1.png" class="thumb active" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Experimental/LS_CameraMotion.0401 - Copy (1).png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Experimental/LS_CameraMotion.1001.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Experimental/LS_CameraMotion.1315.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Experimental/LS_CameraMotion.0427.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Experimental/LS_CameraMotion.0125.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Experimental/LS_CameraMotion.0846.png" class="thumb" onclick="updateFeatured(this)">
+												
+												
+												
+
+											</div>
+
+											<button class="nav-btn" onclick="scrollCarousel(this, 1)">&#10095;</button>
+										</div>
+
+										<p class="unjustify-text">
+											These renders were made using the real CAD files of the SISU 26E design, the new concept class vehicle by <a href="fs.html"> Edinburgh University Formula Student</a> and feature a self-made experimental livery.
+									 They were also later used as the base of the design of the <a href="#eufs-poster">EUFS posters.</a>
+										</p>
+									</section>
+
+									<section class="carousel-component">
+										<h3 class="carousel-title">SISU 26E for official FSUK concept class</h3>
+										
+										<div class="main-display">
+											<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0015.png" alt="Featured" class="image-featured">
+										</div>
+
+										<div class="carousel-container">
+											<button class="nav-btn" onclick="scrollCarousel(this, -1)">&#10094;</button>
+											
+											<div class="thumbnail-track">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0015.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0500.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.1000.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/P_20250717_123827.jpg" class="thumb" onclick="updateFeatured(this)">
+	
+											</div>
+
+											<button class="nav-btn" onclick="scrollCarousel(this, 1)">&#10095;</button>
+										</div>
+
+										<p class="unjustify-text">
+											These renders feature the same real CAD models of SISU 26E, but now featuring special flax fibre bodypanels and an unpolished, raw material
+											look. These renders were used in the official posters for the team in the Formula Student UK design competition. </p>
+									</section>
+
+									<section class="carousel-component">
+										<h3 class="carousel-title">SISU 26E Early and "Failed" designs</h3>
+										
+										<div class="main-display">
+											<img src="images/Art/EUFS-Renders/26E-Early/LS_CameraMotion.0000.jpeg" alt="Featured" class="image-featured">
+										</div>
+
+										<div class="carousel-container">
+											<button class="nav-btn" onclick="scrollCarousel(this, -1)">&#10094;</button>
+											
+											<div class="thumbnail-track">
+												<img src="images/Art/EUFS-Renders/26E-Early/LS_CameraMotion.0000.jpeg" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Early/LS_CameraMotion.0102.jpeg" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Early/LS_CameraMotion.0016.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0011.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0007.png" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/P_20250717_123827.jpg" class="thumb" onclick="updateFeatured(this)">
+	
+											</div>
+
+											<button class="nav-btn" onclick="scrollCarousel(this, 1)">&#10095;</button>
+										</div>
+
+										<p class="unjustify-text">
+											These renders feature the same real CAD models of SISU 26E, but now featuring special flax fibre bodypanels and an unpolished, raw material
+											look. These renders were used in the official posters for the team in the Formula Student UK design competition. </p>
+									</section>
 
 
 
@@ -516,7 +574,7 @@
 			handleScroll();
 		});
 
-		//######################################//
+		//###################PROJECT SIDEBAR###################//
 
 		document.addEventListener('DOMContentLoaded', function () {
 			const activeClass = 'active-project';
@@ -555,6 +613,57 @@
 				}
 			});
 		});
+
+		//#############################CAROUSEL##########################//
+		function updateFeatured(element) {
+			const component = element.closest('.carousel-component');
+			
+			const featured = component.querySelector('.image-featured');
+			featured.src = element.src;
+
+			component.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+			element.classList.add('active');
+		}
+
+		function scrollCarousel(btn, direction) {
+			const component = btn.closest('.carousel-component');
+			const track = component.querySelector('.thumbnail-track');
+			
+			const scrollAmount = track.clientWidth * 0.8; 
+			track.scrollBy({
+				left: scrollAmount * direction,
+				behavior: 'smooth'
+			});
+			setTimeout(() => updateButtonVisibility(track), 200);
+		}
+
+		document.querySelectorAll('.thumbnail-track').forEach(track => {
+			track.addEventListener('wheel', (e) => {
+				e.preventDefault();
+				updateButtonVisibility(track);
+				track.scrollLeft += e.deltaY;
+			}, { passive: false });
+		});
+
+		function updateButtonVisibility(track) {
+			const container = track.closest('.carousel-container');
+			const prevBtn = container.querySelector('.nav-btn:first-of-type');
+			const nextBtn = container.querySelector('.nav-btn:last-of-type');
+
+			if (track.scrollLeft <= 20) {
+				prevBtn.classList.add('hidden');
+			} else {
+				prevBtn.classList.remove('hidden');
+			}
+
+			if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 20) {
+				nextBtn.classList.add('hidden');
+			} else {
+				nextBtn.classList.remove('hidden');
+			}
+		}
+
+
 	</script>
 </body>
 
