@@ -4201,3 +4201,90 @@ body.content-layer {
 .indented-paragraph {
 	padding-left: 2rem;
 }
+
+
+/*RECOMMENDATIONS*/
+
+
+.recommendation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #000;
+}
+
+
+.rec-tile {
+    border: 4px solid #19d7fb;
+    border-radius: 4px;
+    padding: 30px;
+    color: white;
+}
+
+
+.rec-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #8800FF;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    object-fit: cover;
+}
+
+.person-name {
+    font-size: 2.2rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+
+.header-right {
+    text-align: right;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.org-line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.org-logo {
+    height: 1.2em;   
+    width: auto;  
+    max-width: 30px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent;
+}
+
+.rec-body {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+.rec-emph {
+	color: #19d7fb
+}
