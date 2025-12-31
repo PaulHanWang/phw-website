@@ -266,6 +266,8 @@
 											<img src="images/EUFS/EUFS SISU 26E Render 1.png" alt="Featured" class="image-featured">
 										</div>
 
+										<p id="image-caption">Initial Caption Text</p>
+
 										<div class="carousel-container">
 											<button class="nav-btn" onclick="scrollCarousel(this, -1)">&#10094;</button>
 											
@@ -295,17 +297,19 @@
 										<h3 class="carousel-title">SISU 26E for official FSUK concept class</h3>
 										
 										<div class="main-display">
-											<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0015.png" alt="Featured" class="image-featured">
+											<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0015.png" alt="Featured" class="image-featured" style="aspect-ratio: 16 / 9; width: 100%; height: auto; object-fit: contain; background: #000;">
 										</div>
+
+										<p id="image-caption"> </p>
 
 										<div class="carousel-container">
 											<button class="nav-btn" onclick="scrollCarousel(this, -1)">&#10094;</button>
 											
 											<div class="thumbnail-track">
-												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0015.png" class="thumb" onclick="updateFeatured(this)">
-												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0500.png" class="thumb" onclick="updateFeatured(this)">
-												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.1000.png" class="thumb" onclick="updateFeatured(this)">
-												<img src="images/Art/EUFS-Renders/26E-Official/P_20250717_123827.jpg" class="thumb" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0015.png" class="thumb" data-caption="-" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.0500.png" class="thumb" data-caption="-" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/LS_CameraMotion.1000.png" class="thumb" data-caption="-" onclick="updateFeatured(this)">
+												<img src="images/Art/EUFS-Renders/26E-Official/P_20250717_123827.jpg" class="thumb" data-caption="Poster in the FSUK 2025 Design Presentation" onclick="updateFeatured(this)">
 	
 											</div>
 
@@ -624,6 +628,32 @@
 			
 			const featured = component.querySelector('.image-featured');
 			featured.src = element.src;
+
+			component.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+			element.classList.add('active');
+
+			const mainImg = component.querySelector('#main-img');
+			const videoCont = component.querySelector('#video-container');
+			const captionText = component.querySelector('#image-caption'); 
+			
+			const videoUrl = element.getAttribute('data-video');
+			const newCaption = element.getAttribute('data-caption');
+
+			if (captionText && newCaption) {
+				captionText.textContent = newCaption;
+			}
+
+			if (videoUrl) {
+				mainImg.style.display = 'none';
+				videoCont.style.display = 'block';
+				videoCont.innerHTML = `<iframe src="${videoUrl}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+			} else {
+				videoCont.style.display = 'none';
+				videoCont.innerHTML = '';
+				mainImg.style.display = 'block';
+				mainImg.src = element.src;
+			}
+
 
 			component.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
 			element.classList.add('active');

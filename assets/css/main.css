@@ -4205,7 +4205,7 @@ body.content-layer {
 
 .rec-tile {
     border: 4px solid #19d7fb;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 30px;
     color: white;
 }
@@ -4324,7 +4324,7 @@ body.content-layer {
 .carousel-component {
     width: 100%;
     max-width: 900px;
-    margin: 0 auto 50px auto; /* Centers the whole component */
+    margin: 0 auto 50px auto;
 }
 
 .carousel-title {
@@ -4333,7 +4333,6 @@ body.content-layer {
     text-transform: uppercase;
 }
 
-/* Featured Image - Remains full width (900px) */
 .main-display {
     width: 100%;
     background: #111;
@@ -4347,12 +4346,10 @@ body.content-layer {
     object-fit: cover;
 }
 
-/* Thumbnail Carousel - Container is narrower to force thumbnails to be smaller/shorter */
 .carousel-container {
     width: 100%;
-    /*max-width: 700px; /* Adjust this number: Smaller = Shorter height */
 	max-height: 100px;
-    margin: 0 auto 20px auto; /* Centers the carousel strip */
+    margin: 0 auto 20px auto;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -4366,11 +4363,10 @@ body.content-layer {
     overflow-x: hidden;
     scroll-behavior: smooth;
     padding: 5px 0;
-    flex: 1; /* Allows track to take up all space between arrows */
+    flex: 1;
 }
 
 .thumb {
-    /* Corrected Flex: 0 grow, 0 shrink, and the math for exactly 7 items */
     flex: 0 0 calc((100% - (6 * 5px)) / 7); 
     aspect-ratio: 4 / 3;
     object-fit: cover;
@@ -4379,18 +4375,18 @@ body.content-layer {
     background-color: #fff;
 }
 
-/* Interaction Styles */
+
 .thumb.active {
     outline: 4px solid #8800FF; 
     opacity: 0.6;
 }
 
-/* Navigation Buttons */
+
 .nav-btn {
     background: none;
     border: none;
     color: #19d7fb; 
-    font-size: 2.5rem; /* Slightly smaller to match shorter height */
+    font-size: 2.5rem;
     cursor: pointer;
     padding: 0 5px;
     transition: transform 0.2s;
@@ -4409,7 +4405,7 @@ body.content-layer {
 
 .video-responsive {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
 }
@@ -4423,22 +4419,30 @@ body.content-layer {
     border: 0;
 }
 
+#image-caption {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 5px 0 15px 0;
+    font-style: italic;
+}
+
 
 /* MOBILE VERSION */
 @media (max-width: 600px) {
     .carousel-container {
-        flex-wrap: wrap;           /* Allows the buttons to move below the images */
-        justify-content: center;   /* Centers the side-by-side buttons */
-        max-height: none;          /* Allows the container to grow vertically */
-        gap: 0px;                 /* Space between the two buttons */
+        flex-wrap: wrap;        
+        justify-content: center;  
+        max-height: none;     
+        gap: 0px;            
     }
 
     .thumbnail-track {
-        flex: 0 0 100%;            /* Forces the track to take the full top width */
-        order: -1;                 /* Ensures the images stay above the buttons */
+        flex: 0 0 100%;   
+        order: -1;  
     }
 
     .nav-btn {
-        margin-top: 5px;          /* Adds breathing room below the images */
+        margin-top: 5px;  
     }
 }
