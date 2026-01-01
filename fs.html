@@ -554,14 +554,47 @@
 								<header>
 									<h2><a id="testing">Testing & Driving</a></h2>
 								</header>
-								<a class="image featured"><img src="images\EUFS\LTK_5338.JPG" alt="" />
-									<figcaption class="image-description">Testing session, Oct 26 2025, Knockhill Racing
-										Circuit — Photo by Alya Ozturk</figcaption>
-								</a>
-								<p>
+								<div class="video-responsive"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZykpHrTI7D4?si=Ca8-73v-57AsnMxZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
-								</p>
-							</section>
+
+
+
+								<section class="carousel-component">
+									<div class="main-display">
+										<img src="images/EUFS/LTK_5338.JPG" 
+											alt="Featured" 
+											class="image-featured" 
+											style="aspect-ratio: 4 / 3; width: 100%; height: auto; object-fit: contain; background: #000;">
+									</div>
+									<p id="image-caption">Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Alya Ozturk</p>
+
+									<div class="carousel-container">
+										<button class="nav-btn" onclick="scrollCarousel(this, -1)">&#10094;</button>
+										
+										<div class="thumbnail-track">
+											<img src="images/EUFS/LTK_5338.JPG" class="thumb active" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Alya Ozturk" onclick="updateFeatured(this)">
+											<img src="images/EUFS/Testing/1762215086230.jpeg" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Alya Ozturk" onclick="updateFeatured(this)">
+											<img src="images/EUFS/Testing/1762215090266.jpeg" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Paul Wang" onclick="updateFeatured(this)">
+											<img src="images/EUFS/LTK_5376.JPG" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Paul Wang" onclick="updateFeatured(this)">
+											<img src="images/EUFS/Testing/1762215084674.jpeg" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Alya Ozturk" onclick="updateFeatured(this)">
+											<img src="images/EUFS/Testing/1762215077383.jpeg" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Sophia Kolk" onclick="updateFeatured(this)">
+											<img src="images/EUFS/Testing/1762215079685.jpeg" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Paul Wang" onclick="updateFeatured(this)">
+											<img src="images/EUFS/Testing/1762215081226.jpeg" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Paul Wang" onclick="updateFeatured(this)">
+											<img src="images/EUFS/Testing/1762215081930.jpeg" class="thumb" data-caption="Testing session, Oct 26 2025, Knockhill Racing Circuit — Photo by Paul Wang" onclick="updateFeatured(this)">
+
+										</div>
+
+										<button class="nav-btn" onclick="scrollCarousel(this, 1)">&#10095;</button>
+									</div>
+								</section>
+
+
+
+
+
+
+
+							
 
 
 						</article>
@@ -711,6 +744,88 @@
 				}
 			});
 		});
+
+
+
+		//#############################CAROUSEL##########################//
+		function updateFeatured(element) {
+			const component = element.closest('.carousel-component');
+			
+			const featured = component.querySelector('.image-featured');
+			featured.src = element.src;
+
+			component.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+			element.classList.add('active');
+
+			const mainImg = component.querySelector('#main-img');
+			const videoCont = component.querySelector('#video-container');
+			const captionText = component.querySelector('#image-caption'); 
+			
+			const videoUrl = element.getAttribute('data-video');
+			const newCaption = element.getAttribute('data-caption');
+
+			if (captionText && newCaption) {
+				captionText.textContent = newCaption;
+			}
+
+			if (videoUrl) {
+				mainImg.style.display = 'none';
+				videoCont.style.display = 'block';
+				videoCont.innerHTML = `<iframe src="${videoUrl}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+			} else {
+				videoCont.style.display = 'none';
+				videoCont.innerHTML = '';
+				mainImg.style.display = 'block';
+				mainImg.src = element.src;
+			}
+
+
+			component.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+			element.classList.add('active');
+		}
+
+		function scrollCarousel(btn, direction) {
+			const component = btn.closest('.carousel-component');
+			const track = component.querySelector('.thumbnail-track');
+			
+			const scrollAmount = track.clientWidth * 0.8; 
+			track.scrollBy({
+				left: scrollAmount * direction,
+				behavior: 'smooth'
+			});
+			setTimeout(() => updateButtonVisibility(track), 200);
+		}
+
+		document.querySelectorAll('.thumbnail-track').forEach(track => {
+			track.addEventListener('wheel', (e) => {
+				e.preventDefault();
+				updateButtonVisibility(track);
+				track.scrollLeft += e.deltaY;
+			}, { passive: false });
+		});
+
+		function updateButtonVisibility(track) {
+			const container = track.closest('.carousel-container');
+			const prevBtn = container.querySelector('.nav-btn:first-of-type');
+			const nextBtn = container.querySelector('.nav-btn:last-of-type');
+
+			if (track.scrollLeft <= 20) {
+				prevBtn.classList.add('hidden');
+			} else {
+				prevBtn.classList.remove('hidden');
+			}
+
+			if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 20) {
+				nextBtn.classList.add('hidden');
+			} else {
+				nextBtn.classList.remove('hidden');
+			}
+		}
+
+
+
+
+
 	</script>
 </body>
 
