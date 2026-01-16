@@ -25,7 +25,7 @@
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<div id="header" style="height: 200vh; min-height: 100em;">
+		<div id="header" style="height: 300vh; min-height: 100em;">
 
 			<div class="base-image"></div>
 			<div class="edge-map"></div>
@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="lines"></div>
-				<a id="logoLink" class="logo-link" href="index.html">
+				<a id="logoLink" class="logo-link">
 					<img src="images/Logo/LogoBlackfill.png" alt="Company Logo" class="site-logo">
 				</a>
 
@@ -349,8 +349,8 @@
 		const header = document.querySelector('#header');
 
 		const beamSpeed = 0.5;      
-		const maxDelay = 500;     
-		const revealLimit = 0.8;   
+		const maxDelay = 2000;     
+		const revealLimit = 0.6;   
 
 		let pCenter = 180; 
 		let isWaiting = false;
@@ -360,10 +360,20 @@
 			const totalScrollable = header.offsetHeight - window.innerHeight;
 			const rawProgress = Math.min(Math.max(scrollPos / totalScrollable, 0), 1);
 
-			baseImg.style.opacity = 1 - rawProgress;
+			let revealProgress = rawProgress / revealLimit;
+			if (revealProgress > 1) revealProgress = 1; 
+
+			baseImg.style.opacity = 1 - revealProgress;
+
+			const rStart = 180 - (revealProgress * 230); 
+			const rFeather = rStart - 60; 
+
+			edgeMap.style.setProperty('--r-start', `${rStart}%`);
+			edgeMap.style.setProperty('--r-feather', `${rFeather}%`);
+
 
 			if (!isWaiting) {
-				pCenter -= beamSpeed;
+				pCenter -= beamSpeed; 
 
 				if (pCenter < -80) {
 					isWaiting = true;
@@ -374,22 +384,10 @@
 				}
 			}
 
-
 			edgeMap.style.setProperty('--p-f1', `${pCenter - 20}%`);
 			edgeMap.style.setProperty('--p-b1', `${pCenter - 5}%`);
 			edgeMap.style.setProperty('--p-b2', `${pCenter + 5}%`);
 			edgeMap.style.setProperty('--p-f2', `${pCenter + 20}%`);
-
-
-			let revealProgress = rawProgress / revealLimit;
-			if (revealProgress > 1) revealProgress = 1; 
-
-
-			const rStart = 180 - (revealProgress * 230); 
-			const rFeather = rStart - 60; 
-
-			edgeMap.style.setProperty('--r-start', `${rStart}%`);
-			edgeMap.style.setProperty('--r-feather', `${rFeather}%`);
 			
 			requestAnimationFrame(update);
 		}
