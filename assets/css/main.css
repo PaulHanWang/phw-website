@@ -2405,7 +2405,49 @@ header .icon.circled {
 
 	min-height: 37em;
 
+    width: 100%;
+    height: 200vh;
+    background: #000;
+    overflow: hidden;
+
+
 }
+
+.base-image, .edge-map {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.base-image {
+    background-image: url("../../images/AirplaneBackground.jpg");
+    z-index: 0;
+}
+
+.edge-map {
+    background-image: url("../../images/AirplaneEdge.jpg");
+    z-index: 1; 
+    mix-blend-mode: screen;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    opacity: 1;
+
+    -webkit-mask-image: 
+        linear-gradient(165deg, transparent var(--r-feather), white var(--r-start)),
+        linear-gradient(165deg, transparent var(--p-f1), white var(--p-b1), white var(--p-b2), transparent var(--p-f2));
+
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-position: 0% 0%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-composite: source-over;
+    mask-composite: add;
+}
+
+
+
 
 .EUFS_overview #header {
 	background-image: url("../../images/EUFS/EUFS 1.1.gif");
@@ -2423,9 +2465,21 @@ header .icon.circled {
 }
 
 #header .inner {
-	position: relative;
-	z-index: 1;
-	margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 10;
+    margin: 0;
+    pointer-events: none; 
 }
 
 #header header {
@@ -2734,16 +2788,16 @@ body.homepage.is-preload #header:after {
 	background: linear-gradient(90deg, #19d7fb, #3528e6);
 }
 
-/* New style for the far-right text */
+
 .gradient-subtext {
     position: absolute;
-    top: 12px;           /* 8px for the line + 4px gap */
-    right: 15px;         /* Distance from the right edge */
+    top: 12px;
+    right: 15px;   
     color: #ffffff;
-    font-size: 0.5em;   /* Makes the text small */
+    font-size: 0.5em;
     font-weight: 300;
     letter-spacing: 0.5px;
-    white-space: nowrap; /* Prevents text from wrapping */
+    white-space: nowrap;
 }
 
 #gradientline header>p {
@@ -3075,6 +3129,7 @@ body.homepage.is-preload #header:after {
 	#header .inner {
 		padding-left: 2em;
 		padding-right: 2em;
+		z-index: 1000000;
 	}
 
 	/* Banner */
@@ -3630,6 +3685,7 @@ body.homepage.is-preload #header:after {
 	-webkit-background-clip: text;
 	background-clip: text;
 	padding: 15px;
+	z-index: 10000;
 }
 
 .Sailing_overview .gradient-outline-text-title {
