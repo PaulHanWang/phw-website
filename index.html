@@ -57,7 +57,7 @@
 		<!-- Banner -->
 		<section id="banner" class="banner">
 			<span class="gradient-subtext"> <a href="aviation.html#photo-reel">Photo by Paul Wang</a></span>
-			<header>
+			<header id = "home">
 				<h2>Official Website of Paul Han Wang.</h2>
 				<p class="BatangasFont">
 					<a href="fs.html">Vehicle dynamics engineer</a>, <a href="sailing.html">sailing instructor</a>, and
@@ -238,13 +238,11 @@
 										class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
 								<li><a href="https://github.com/PaulHanWang" target="_blank"
 										class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<li><a href="https://www.instagram.com/paulhanwang/" target="_blank"
-										class="icon brands fa-instagram"><span class="label">Instragram</span></a></li>
 								<li>
 									<a href="javascript:void(0);" class="icon solid fa-envelope email-copy-link"
 										onclick="navigator.clipboard.writeText('paulhanwang@gmail.com')">
 										<span class="label">Email</span>
-										<span class="copied-message">Copy to clipboard</span>
+										<span class="copied-message">Click to copy to clipboard</span>
 									</a>
 								</li>
 
@@ -302,7 +300,6 @@
 				} else {
 					if (logoLink.classList.contains('logo-fixed')) {
 						logoLink.classList.remove('logo-fixed');
-						logoLink.setAttribute('href', 'index.html');
 					}
 				}
 			}
@@ -405,7 +402,7 @@
 
 		// SCROLL ICON SCRIPT
 		const SHOW_DELAY_MS = 5000;         // Initial wait to show
-		const HIDE_SCROLL_PX = 500;         // Scroll distance to hide
+		const HIDE_SCROLL_PX = 300;         // Scroll distance to hide
 		const HIDE_MIN_TIME_MS = 3000;      // Min time it stays visible
 		const REACTIVATE_DORMANT_MS = 3000;   // Wait time of stillness to show again
 		const MAX_SCROLL_LIMIT_PX = 2000;   // ABSOLUTE LIMIT: Never show if scrolled past this
@@ -467,7 +464,15 @@
 
 
 
+		// 1. Change URL when the page loads at #home
+		if (window.location.hash === 'index.html#home') {
+			window.history.replaceState(null, null, '/home');
+		}
 
+		// 2. Optional: If you have a nav link, use this to update the URL
+		document.querySelector('a[href="index.html#home"]').addEventListener('click', function(e) {
+			window.history.pushState(null, null, '/home');
+		});
 
 
 	</script>

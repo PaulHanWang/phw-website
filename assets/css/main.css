@@ -2351,6 +2351,11 @@ button.alt:hover,
 
 .icon.solid:before {
 	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+}
+
+.icon.regular:before {
+	font-family: 'Font Awesome 5 Free';
 }
 
 .icon.brands:before {
@@ -2747,10 +2752,11 @@ body.homepage.is-preload #header:after {
 
 #banner {
 	position: relative;
-	background: #000000d3;
+	background: #000000;
 	text-align: center;
 	padding: 4.5em 0 4.5em 0;
 	margin-bottom: 0;
+	z-index: 4;
 }
 
 #banner::before {
@@ -2886,6 +2892,7 @@ body.homepage.is-preload #header:after {
 
 #main {
 	margin-bottom: 0;
+	z-index: 4;
 }
 
 #main section:first-of-type {
@@ -2900,6 +2907,7 @@ body.homepage.is-preload #header:after {
 	padding: 4em 0 4em 0;
 	background: linear-gradient(90deg, #19d7fb, #3528e6);
 	color: #fff;
+	z-index: 900;
 }
 
 #footer .icon.circled {
@@ -3892,13 +3900,13 @@ body {
 body {
 	margin: 0;
 	background-color: #000000;
-
 }
 
 
 .project-link {
 	text-decoration: none;
 	display: block;
+	
 }
 
 .project-row {
@@ -3919,6 +3927,7 @@ body {
 	transition: transform 0.3s ease-out;
 
 	cursor: pointer;
+
 }
 
 .project-link:hover .content-container {
@@ -3943,7 +3952,7 @@ body {
 	position: relative;
 	box-sizing: border-box;
 
-	z-index: 0;
+	z-index: 1;
 }
 
 .photo-container::after {
@@ -4605,3 +4614,4 @@ body.content-layer {
         opacity: 1;
     }
 }
+
