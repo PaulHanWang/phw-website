@@ -2759,6 +2759,16 @@ body.homepage.is-preload #header:after {
 	z-index: 4;
 }
 
+.homepage #banner {
+	position: relative;
+	background: #1d1d1d;
+	text-align: center;
+	padding: 4.5em 0 0 0;
+	margin-bottom: -3em;
+	z-index: 4;
+	
+}
+
 #banner::before {
 	content: '';
 	position: absolute;
@@ -4615,3 +4625,257 @@ body.content-layer {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+    --header-height: 15vh;
+    --bottom-margin: 8vh;
+    --side-margin: 16vh; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+.normal-section {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333333;
+    z-index: 20;
+    position: relative;
+}
+
+/* Sticky Architecture */
+.sticky-track {
+    height: 700vh;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.home-anchor {
+    position: absolute;
+    top: 85%;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: black;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.main-header {
+    height: var(--header-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+	background: #1d1d1d;
+}
+
+.main-header h1 { font-size: 4.25vh; font-weight: 900; }
+.main-header h2 { font-size: 2.25vh; color: #ffffff; }
+
+/* Main Stage */
+.main-stage {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+    padding: 0 var(--side-margin) var(--bottom-margin) var(--side-margin); 
+    position: relative;
+}
+
+/* PROJECTS Sidebar */
+.sidebar-wrapper {
+    position: absolute;
+    z-index: 20;
+    left: var(--side-margin); 
+    top: 0;
+}
+
+.project-label {
+    font-size: 7vh;
+    font-weight: 900;
+    color: #19d7fb;
+    white-space: nowrap;
+    transform-origin: bottom right;
+    transform: rotate(-75deg); 
+    position: absolute;
+    
+    top: -8vh; 
+    right: -90px; 
+}
+
+
+.project-label span {
+    display: inline-block;
+    transform: skewX(15deg); 
+}
+
+/* Tile Grid */
+.tile-row {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    gap: 1.2vw;
+    align-items: stretch;
+}
+
+/* Tile Core Logic */
+.tile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    position: relative;
+    background-color: #333333;
+    
+    --current-color: var(--default-color);
+    
+    border: 4.5px solid var(--current-color);
+    border-radius: 10px;
+    box-shadow: 0 0 35px -5px var(--current-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+/* Hover Effects */
+.tile::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; right: -50%; bottom: -50%;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tile:hover { 
+    --current-color: var(--hover-color);
+    box-shadow: 0 0 55px var(--current-color); 
+    z-index: 15; 
+}
+.tile:hover::before { opacity: 0.35; }
+
+/* Content & Logo */
+.tile-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(20, 20, 20);
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-bottom: 4.5px solid var(--current-color);
+	transition: border-color 0.3s ease;
+}
+
+.tile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: skewX(15deg) scale(1.4);
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: skewX(15deg) scale(1.4);
+}
+
+.text-container {
+    padding: 2.5vh 1.5vw;
+    color: #ccc;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1.5vh;
+}
+
+.text-container h3 {
+    font-size: 3vh;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 800;
+}
+
+/* Logo: */
+.tile-logo {
+    position: absolute;
+    bottom: 1.5vh;
+    right: 1.5vw;
+    
+    max-height: 5.5vh; 
+    max-width: 5.5vh; 
+    
+    width: auto;
+    height: auto;
+    background: transparent;
+    object-fit: contain;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+
+.tile:hover .tile-logo {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+
+.text-container p {
+    font-size: 2vh;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-bottom: 3vh; 
+	text-align: left;
+}
