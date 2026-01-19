@@ -4710,12 +4710,12 @@ body {
 
 /* Main Stage */
 .main-stage {
+    position: relative;
     flex-grow: 1;
     display: flex;
     justify-content: center; 
     width: 100%;
-    padding: 0 var(--side-margin) var(--bottom-margin) var(--side-margin); 
-    position: relative;
+    padding: 0 var(--side-margin) var(--bottom-margin) var(--side-margin);
 }
 
 /* PROJECTS Sidebar */
@@ -4862,6 +4862,7 @@ body {
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
     transition: all 0.3s ease;
     z-index: 5;
+	
 }
 
 
@@ -4879,3 +4880,217 @@ body {
     margin-bottom: 3vh; 
 	text-align: left;
 }
+
+
+
+
+/* FORCE GLOW STATE */
+.tile.forced-hover {
+    --current-color: var(--hover-color) !important;
+    box-shadow: 0 0 55px var(--current-color) !important;
+    z-index: 15 !important;
+    transform: translateY(-2px);
+}
+
+.tile.forced-hover .tile-logo {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* EXPANDED PANE ARCHITECTURE */
+.expanded-pane {
+    position: absolute;
+    left: 28vw; 
+    top: 0;
+    right: var(--side-margin);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 100;
+}
+
+
+/* JS toggler for visibility */
+.expanded-pane.visible {
+    opacity: 1 !important;
+    pointer-events: all !important;
+    visibility: visible !important;
+}
+
+/* TOP SECTION */
+.pane-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 0; 
+}
+
+.pane-title {
+    font-size: 5.5vh;
+    font-weight: 900;
+    color: var(--pane-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    line-height: 0.9;
+    
+    transform-origin: left bottom;
+    
+    margin-left: 2.5vw; 
+    margin-bottom: 2.5vh;
+    display: inline-block;
+}
+
+.pane-title:hover{
+	color: #FFFFFF;
+}
+
+.pane-content-row {
+    display: flex;
+    width: 100%;
+    gap: 3vw;
+    align-items: flex-start;
+}
+
+.pane-video-box {
+    transform-origin: left top;
+    transform: skewX(-15deg);
+    margin-left: 2.5vw; 
+    
+    width: 45%;
+    aspect-ratio: 4 / 3;
+    border: 4px solid var(--pane-color);
+    box-shadow: 0 0 25px var(--pane-color);
+    overflow: hidden;
+	border-radius: 5px;
+}
+
+.pane-video-box .skew-fix {
+    width: 100%;
+    height: 100%;
+    transform: skewX(15deg); 
+}
+
+.pane-video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    transform-origin: center;
+    transform: skewX(15deg) scale(1.2); 
+}
+
+
+
+/* Text & Button Column */
+.pane-text-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pane-text-box p {
+    font-size: 2.25vh;
+    color: white;
+    margin-bottom: auto;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 2px solid var(--pane-color);
+	transform: skewX(-15deg);
+}
+
+/* Big Hover Button */
+.pane-btn {
+    margin-top: 2vh;
+    width: 100%;
+    background: var(--pane-color);
+    transform: skewX(-15deg);
+    padding: 1.5vh;
+    color: black;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+	border-radius: 5px;
+	transition: all 0.1s ease;
+}
+
+.pane-btn span {
+    display: block;
+    transform: skewX(15deg);
+}
+
+.pane-btn:hover {
+    box-shadow: 0 0 70px var(--pane-color);
+    transform: scale(1.05);
+	color: #ffffff;
+}
+
+
+/* BOTTOM SECTION: 5 MINI TILES */
+.pane-bottom {
+    height: 15vh;
+    display: flex;
+    gap: 1vw;
+    margin-top: 3vh;
+    padding-left: 2vw;
+}
+
+.mini-tile {
+    flex: 1;
+    position: relative;
+    border: 3px solid var(--pane-color);
+    transform: skewX(-15deg);
+    overflow: hidden;
+    text-decoration: none;
+    transition: background 0.3s;
+	border-radius: 5px;
+}
+
+.mini-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: skewX(15deg) scale(1.4);
+    filter: grayscale(100%);
+	transition: all 0.5s;
+	
+}
+
+.mini-title {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) skewX(15deg);
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    font-size: 1.5vh;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px black;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+	transition: all 0.3s ease;
+}
+
+.mini-tile:hover .mini-bg {
+    transform: skewX(15deg) scale(1.6);
+    filter: grayscale(0%);
+	transition: all 0.3s ease;
+}
+
+.mini-tile:hover {
+    box-shadow: 0 0 35px var(--pane-color);
+    z-index: 5;
+	transition: all 0.3s ease;
+}
+
+
+
+
+
+
