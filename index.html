@@ -173,11 +173,7 @@
 							<a href="fs.html" class="pane-title">EDINBURGH UNIVERSITY FORMULA STUDENT</a>
 
 							<div class="pane-content-row">
-								<div class="pane-video-box">
-									<video playsinline muted loop class="lazy-video" preload="none">
-										<source data-src="images/EUFS/EUFS 26E Accurate for website 1.2.mp4" type="video/mp4">
-									</video>
-								</div>
+								
 
 								<div class="pane-text-box">
 									<p>
@@ -227,11 +223,7 @@
 							<a href="sailing.html" class="pane-title">MINNEAPOLIS SAILING CENTER</a>
 
 							<div class="pane-content-row">
-								<div class="pane-video-box">
-									<video playsinline muted loop class="lazy-video" preload="none">
-										<source data-src="images/Sailing/C Scow background for website 1.mp4" type="video/mp4">
-									</video>
-								</div>
+								
 
 								<div class="pane-text-box">
 									<p>
@@ -916,36 +908,7 @@
 
 
 		//Video Player Optimisation
-		document.addEventListener("DOMContentLoaded", () => {
-			const lazyVideos = document.querySelectorAll('.lazy-video');
-
-			const videoObserver = new IntersectionObserver((entries, observer) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						const video = entry.target;
-						const source = video.querySelector('source');
-
-						// Load the source
-						source.src = source.dataset.src;
-						video.load();
-
-						// Optional: Play automatically once loaded
-						video.play();
-
-						// Stop observing this specific video
-						observer.unobserve(video);
-					}
-				});
-			}, {
-				// "200px" means: start loading when the video is 200px below the bottom of the screen
-				rootMargin: '0px 0px 200px 0px',
-				threshold: 0
-			});
-
-			lazyVideos.forEach(video => {
-				videoObserver.observe(video);
-			});
-		});
+		
 
 
 	</script>
