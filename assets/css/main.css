@@ -4567,10 +4567,10 @@ body.content-layer {
 
 
 .chevron {
-    width: 15px;
-    height: 15px;
-    border-right: 3px solid;
-    border-bottom: 3px solid;
+    width: 20px;
+    height: 20px;
+    border-right: 5px solid;
+    border-bottom: 5px solid;
     transform: rotate(45deg);
     
     margin-top: -6px;
@@ -4598,7 +4598,7 @@ body.content-layer {
 
 .scroll-text {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     letter-spacing: 1px;
     font-weight: 500;
     text-transform: uppercase;
@@ -4638,459 +4638,565 @@ body.content-layer {
 
 
 
-
+/* ========================================= */
+/* GLOBAL VARIABLES & RESET                 */
+/* ========================================= */
 :root {
-    --header-height: 15vh;
-    --bottom-margin: 8vh;
-    --side-margin: 16vh; 
+    --header-height: 15vh;  /* Height of top header */
+    --bottom-margin: 8vh;   /* Spacing from bottom */
+    --side-margin: 16vh;    /* Spacing from sides */
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box; /* Includes padding in width */
+    margin: 0;              /* Removes default margins */
+    padding: 0;             /* Removes default padding */
 }
 
 body {
-    overflow-x: hidden;
-    width: 100vw;
+    overflow-x: hidden;     /* Prevents horizontal scrolling */
+    width: 100vw;           /* Full viewport width */
 }
 
+/* ========================================= */
+/* LAYOUT & ARCHITECTURE                    */
+/* ========================================= */
 .normal-section {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #333333;
-    z-index: 20;
-    position: relative;
+    height: 60vh;           /* Sets standard section height */
+    display: flex;          /* Enables flexbox layout */
+    align-items: center;    /* Vertically centers content */
+    justify-content: center;/* Horizontally centers content */
+    background: #333333;    /* Dark gray background */
+    z-index: 20;            /* Stacks above sticky track */
+    position: relative;     /* Establishes positioning context */
 }
 
-/* Sticky Architecture */
 .sticky-track {
-    height: 700vh;
-    width: 100%;
-    position: relative;
-    z-index: 10;
+    height: 1200vh;         /* Extremely tall scroll track */
+    width: 100%;            /* Full width container */
+    position: relative;     /* Context for absolute children */
+    z-index: 10;            /* sits behind normal sections */
 }
 
 .home-anchor {
-    position: absolute;
-    top: 85%;
-    left: 0;
-    width: 1px;
-    height: 1px;
-    pointer-events: none;
+    position: absolute;     /* Removes from flow */
+    top: 90%;               /* Near bottom of track */
+    left: 0;                /* Aligns to left edge */
+    width: 1px;             /* Invisible trigger point */
+    height: 1px;            /* Invisible trigger point */
+    pointer-events: none;   /* Ignores mouse interactions */
 }
 
 .sticky-wrapper {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background: black;
-    display: flex;
-    flex-direction: column;
+    position: sticky;       /* Sticks on scroll */
+    top: 0;                 /* Sticks to top edge */
+    height: 100vh;          /* Fills the viewport */
+    width: 100vw;           /* Fills the viewport */
+    overflow: hidden;       /* Hides overflowing content */
+    background: black;      /* Black background color */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks children vertically */
 }
 
-/* Header */
+/* ========================================= */
+/* MAIN HEADER                              */
+/* ========================================= */
 .main-header {
-    height: var(--header-height);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 30;
-	background: #1d1d1d;
+    height: var(--header-height); /* Uses defined header height */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks text vertically */
+    justify-content: center;/* Centers content vertically */
+    align-items: center;    /* Centers content horizontally */
+    z-index: 30;            /* Sits above everything */
+    background: #1d1d1d;    /* Dark charcoal background */
 }
 
-.main-header h1 { font-size: 4.25vh; font-weight: 900; }
-.main-header h2 { font-size: 2.25vh; color: #ffffff; }
+.main-header h1 { 
+    font-size: 4.25vh;      /* Large title text */
+    font-weight: 900;       /* Extra bold weight */
+}
 
-/* Main Stage */
+.main-header h2 { 
+    font-size: 2.25vh;      /* Smaller subtitle text */
+    color: #ffffff;         /* White text color */
+}
+
+/* ========================================= */
+/* MAIN STAGE & SIDEBAR                     */
+/* ========================================= */
 .main-stage {
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center; 
-    width: 100%;
-    padding: 0 var(--side-margin) var(--bottom-margin) var(--side-margin);
+    position: relative;     /* Context for children */
+    flex-grow: 1;           /* Fills remaining space */
+    display: flex;          /* Enables flexbox layout */
+    justify-content: center;/* Centers content horizontally */
+    width: 100%;            /* Full width container */
+    padding: 0 var(--side-margin) var(--bottom-margin) var(--side-margin); /* Adds structural padding */
 }
 
-/* PROJECTS Sidebar */
 .sidebar-wrapper {
-    position: absolute;
-    z-index: 20;
-    left: var(--side-margin); 
-    top: 0;
+    position: absolute;     /* Removes from flow */
+    z-index: 20;            /* Sits above tiles */
+    left: var(--side-margin);/* Aligns to left margin */
+    top: 0;                 /* Aligns to top edge */
 }
 
 .project-label {
-    font-size: 7vh;
-    font-weight: 900;
-    color: #19d7fb;
-    white-space: nowrap;
-    transform-origin: bottom right;
-    transform: rotate(-75deg); 
-    position: absolute;
-    
-    top: -8vh; 
-    right: -90px; 
+    font-size: 7vh;         /* Massive label text */
+    font-weight: 900;       /* Extra bold weight */
+    color: #19d7fb;         /* Cyan accent color */
+    white-space: nowrap;    /* Prevents text wrapping */
+    transform-origin: bottom right; /* Pivots from corner */
+    transform: rotate(-75deg); /* Rotates text vertically */
+    position: absolute;     /* Absolute positioning */
+    top: -8vh;              /* Offsets upwards */
+    right: -90px;           /* Offsets to right */
 }
-
 
 .project-label span {
-    display: inline-block;
-    transform: skewX(15deg); 
+    display: inline-block;  /* Allows transform application */
+    transform: skewX(15deg);/* Counter-skews the text */
 }
 
-/* Tile Grid */
+/* ========================================= */
+/* TILE GRID SYSTEM                         */
+/* ========================================= */
 .tile-row {
-    width: 100%;
-    max-width: none;
-    display: flex;
-    gap: 1.2vw;
-    align-items: stretch;
+    width: 100%;            /* Full width container */
+    max-width: none;        /* Removes width limits */
+    display: flex;          /* Enables flexbox layout */
+    gap: 1.2vw;             /* Spacing between tiles */
+    align-items: stretch;   /* Stretches tiles vertically */
+    
+    /* Fixes for hover clipping */
+    padding-bottom: 60px !important; /* Space for hover glow */
+    box-sizing: content-box;/* Excludes padding from height */
+    overflow: visible !important; /* Allows glow overflow */
 }
 
-/* Tile Core Logic */
 .tile {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    position: relative;
-    background-color: #333333;
+    flex: 1;                /* Tiles grow equally */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    text-decoration: none;  /* Removes link underlines */
+    position: relative;     /* Context for children */
+    background-color: #333333; /* Dark tile background */
     
-    --current-color: var(--default-color);
+    --current-color: var(--default-color); /* Sets variable default */
     
-    border: 4.5px solid var(--current-color);
-    border-radius: 10px;
-    box-shadow: 0 0 35px -5px var(--current-color);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    z-index: 1;
+    border: 4.5px solid var(--current-color); /* Colored border */
+    border-radius: 10px;    /* Rounded corners */
+    box-shadow: 0 0 35px -5px var(--current-color); /* Inner glow effect */
+    overflow: hidden;       /* Clips internal content */
+    transition: all 0.3s ease; /* Smooth state transitions */
+    z-index: 1;             /* Default stack order */
 }
 
-/* Hover Effects */
+/* --- Tile Hover Effects --- */
 .tile::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; right: -50%; bottom: -50%;
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none;
+    content: '';            /* Creates pseudo-element */
+    position: absolute;     /* Covers the tile */
+    top: -50%; left: -50%; right: -50%; bottom: -50%; /* Extends beyond edges */
+    opacity: 0;             /* Hidden by default */
+    z-index: 1;             /* Bottom layer inside */
+    pointer-events: none;   /* Allows clicks through */
+	overflow: hidden;
 }
 
 .tile:hover { 
-    --current-color: var(--hover-color);
-    box-shadow: 0 0 55px var(--current-color); 
-    z-index: 15; 
-}
-.tile:hover::before { opacity: 0.35; }
-
-/* Content & Logo */
-.tile-content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: rgba(20, 20, 20);
+    --current-color: var(--hover-color) !important;/* Swaps to hover color */
+    box-shadow: 0 0 55px var(--current-color); /* Intensifies the glow */
+    z-index: 1000 !important; /* Floats above neighbors */
 }
 
-.video-container {
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    border-bottom: 4.5px solid var(--current-color);
-	transition: border-color 0.3s ease;
+.tile:hover::before { 
+    opacity: 0.35;          /* Shows highlight overlay */
 }
 
-.tile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: skewX(15deg) scale(1.4);
-}
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: skewX(15deg) scale(1.4);
-}
-
-.text-container {
-    padding: 2.5vh 1.5vw;
-    color: #ccc;
-    flex-grow: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.title-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 1.5vh;
-}
-
-.text-container h3 {
-    font-size: 3vh;
-    text-transform: uppercase;
-    color: white;
-    font-weight: 800;
-}
-
-/* Logo: */
-.tile-logo {
-    position: absolute;
-    bottom: 1.5vh;
-    right: 1.5vw;
-    
-    max-height: 5.5vh; 
-    max-width: 5.5vh; 
-    
-    width: auto;
-    height: auto;
-    background: transparent;
-    object-fit: contain;
-    opacity: 0.8;
-    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
-    transition: all 0.3s ease;
-    z-index: 5;
-	
-}
-
-
-.tile:hover .tile-logo {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-
-
-.text-container p {
-    font-size: 2vh;
-    line-height: 1.4;
-    font-weight: 300;
-    margin-bottom: 3vh; 
-	text-align: left;
-}
-
-
-
-
-/* FORCE GLOW STATE */
+/* --- Forced Hover State (JS Triggered) --- */
 .tile.forced-hover {
-    --current-color: var(--hover-color) !important;
-    box-shadow: 0 0 55px var(--current-color) !important;
-    z-index: 15 !important;
-    transform: translateY(-2px);
+    --current-color: var(--hover-color) !important; /* Enforces hover color */
+    box-shadow: 0 0 55px var(--current-color) !important; /* Enforces strong glow */
+    z-index: 1000 !important; /* Elevates stack order */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 .tile.forced-hover .tile-logo {
-    opacity: 1;
-    transform: translateY(-50%) scale(1.1);
+    opacity: 1;             /* Fully visible logo */
+    transform: translateY(-50%) scale(1.1); /* Centers and zooms */
 }
 
-/* EXPANDED PANE ARCHITECTURE */
+/* ========================================= */
+/* TILE CONTENT                             */
+/* ========================================= */
+.tile-content {
+    position: relative;     /* Context for children */
+    z-index: 2;             /* Sits above background */
+    height: 100%;           /* Fills tile height */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    background: rgba(20, 20, 20); /* Dark background overlay */
+}
+
+.video-container {
+    width: 100%;            /* Full width video */
+    aspect-ratio: 4/3;      /* Standard video ratio */
+    overflow: hidden;       /* Clips overflowing video */
+    border-bottom: 4.5px solid var(--current-color); /* Separator line */
+    transition: border-color 0.3s ease; /* Smooth color change */
+}
+
+.tile-image {
+    width: 100%;            /* Fills container width */
+    height: 100%;           /* Fills container height */
+    object-fit: cover;      /* Crops to fill */
+    transform: skewX(15deg) scale(1.4); /* Skews and zooms */
+}
+
+.video-container video {
+    width: 100%;            /* Fills container width */
+    height: 100%;           /* Fills container height */
+    object-fit: cover;      /* Crops to fill */
+    transform: skewX(15deg) scale(1.4); /* Skews and zooms */
+}
+
+/* --- Text & Details --- */
+.text-container {
+    padding: 2.5vh 1.5vw;   /* Internal spacing */
+    color: #ccc;            /* Light gray text */
+    flex-grow: 1;           /* Fills remaining space */
+    position: relative;     /* Context for logo */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks text vertically */
+}
+
+.title-wrap {
+    display: flex;          /* Enables flexbox layout */
+    align-items: center;    /* Vertically centers text */
+    justify-content: flex-start; /* Aligns to left */
+    margin-bottom: 1.5vh;   /* Spacing below title */
+}
+
+.text-container h3 {
+    font-size: 3vh;         /* Large header size */
+    text-transform: uppercase; /* All caps text */
+    color: white;           /* White text color */
+    font-weight: 600;       /* Bold font weight */
+}
+
+.text-container p {
+    font-size: 2vh;         /* Body text size */
+    line-height: 1.4;       /* Readable line height */
+    font-weight: 300;       /* Light font weight */
+    margin-bottom: 3vh;     /* Spacing below paragraph */
+    text-align: left;       /* Left aligned text */
+}
+
+/* --- Tile Logo --- */
+.tile-logo {
+    position: absolute;     /* Anchors to container */
+    bottom: 1.5vh;          /* Position from bottom */
+    right: 1.5vw;           /* Position from right */
+    max-height: 6.5vh;      /* Limits logo height */
+    max-width: 6.5vh;       /* Limits logo width */
+    width: auto;            /* Maintains aspect ratio */
+    height: auto;           /* Maintains aspect ratio */
+    background: transparent;/* Transparent background */
+    object-fit: contain;    /* Fits within bounds */
+    opacity: 0.8;           /* Slightly transparent */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Adds shadow depth */
+    transition: all 0.3s ease; /* Smooth hover transition */
+    z-index: 5;             /* Sits above text */
+}
+
+.tile:hover .tile-logo {
+    opacity: 1;             /* Fully visible on hover */
+    transform: scale(1.1);  /* Slight zoom effect */
+}
+
+/* ========================================= */
+/* EXPANDED PANE SYSTEM                     */
+/* ========================================= */
 .expanded-pane {
-    position: absolute;
-    left: 28vw; 
-    top: 0;
-    right: var(--side-margin);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    z-index: 100;
+    position: absolute;     /* Removes from flow */
+    left: 28vw;             /* Default left position */
+    top: 0;                 /* Aligns to top */
+    right: var(--side-margin); /* Aligns to right */
+    height: 100%;           /* Full height pane */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    z-index: 100;           /* Sits above tiles */
+    padding-left: 0 !important; /* Resets padding override */
+    pointer-events: none;   /* Disables interactions initially */
+    opacity: 0;             /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade in */
 }
 
-
-/* JS toggler for visibility */
 .expanded-pane.visible {
-    opacity: 1 !important;
-    pointer-events: all !important;
-    visibility: visible !important;
+    opacity: 1 !important;  /* Force visibility */
+    pointer-events: all !important; /* Enable interactions */
+    visibility: visible !important; /* Ensure rendering */
 }
 
-/* TOP SECTION */
 .pane-top {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding-top: 0; 
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    align-items: flex-start;/* Aligns to left */
+    width: 100%;            /* Full width container */
+    padding-top: 0;         /* Removes top padding */
 }
 
 .pane-title {
-    font-size: 5.5vh;
-    font-weight: 900;
-    color: var(--pane-color);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-style: italic;
-    line-height: 0.9;
-    
-    transform-origin: left bottom;
-    
-    margin-left: 2.5vw; 
-    margin-bottom: 2.5vh;
-    display: inline-block;
+    font-size: 5.5vh;       /* Massive pane title */
+    font-weight: 900;       /* Extra bold weight */
+    color: var(--pane-color); /* Uses pane color */
+    text-decoration: none;  /* Removes underline */
+    text-transform: uppercase; /* All caps text */
+    font-style: italic;     /* Italicized style */
+    line-height: 0.9;       /* Tight line spacing */
+    transform-origin: left bottom; /* Pivot for transforms */
+    margin-left: 2.5vw;     /* Indents from left */
+    margin-bottom: 2.5vh;   /* Spacing below title */
+    display: inline-block;  /* Allows transforms */
 }
 
 .pane-title:hover{
-	color: #FFFFFF;
+    color: #FFFFFF;         /* White on hover */
 }
 
 .pane-content-row {
-    display: flex;
-    width: 100%;
-    gap: 3vw;
-    align-items: flex-start;
+    display: flex;          /* Enables flexbox layout */
+    width: 100%;            /* Full width container */
+    gap: 3vw;               /* Spacing between columns */
+    align-items: flex-start;/* Aligns to top */
 }
 
-.pane-video-box {
-    transform-origin: left top;
-    transform: skewX(-15deg);
-    margin-left: 2.5vw; 
+/* --- Pane Video Box (Universal Shape) --- */
+.expanded-pane .pane-video-box {
+    transform-origin: left top; /* Pivot for skew */
+    transform: skewX(-15deg); /* Creates parallelogram */
+    margin-left: 2.5vw;     /* Left margin offset */
+    width: 45%;             /* Default width */
+    aspect-ratio: 4 / 3;    /* Default aspect ratio */
+    border: 4px solid var(--pane-color); /* Colored border */
+    box-shadow: 0 0 25px var(--pane-color); /* Glowing border */
+    border-radius: 5px;     /* Slight rounded corners */
     
-    width: 45%;
-    aspect-ratio: 4 / 3;
-    border: 4px solid var(--pane-color);
-    box-shadow: 0 0 25px var(--pane-color);
-    overflow: hidden;
-	border-radius: 5px;
+    /* Fixes for bleed & cropping */
+    overflow: hidden !important; /* Clips bleeding content */
+    padding: 0 !important;       /* Removes internal padding */
+    position: relative;          /* Anchors absolute children */
 }
 
 .pane-video-box .skew-fix {
-    width: 100%;
-    height: 100%;
-    transform: skewX(15deg); 
+    width: 100%;            /* Fills the box */
+    height: 100%;           /* Fills the box */
+    transform: skewX(15deg); /* Counter-skews content */
 }
 
-.pane-video-box video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-    transform-origin: center;
-    transform: skewX(15deg) scale(1.2); 
+/* --- Pane Video Content (The Fixes) --- */
+.expanded-pane .pane-video-box video,
+.expanded-pane .pane-video-box img {
+    width: 130% !important;     /* Bleeds past edges */
+    margin-left: -15% !important; /* Centers the bleed */
+    object-fit: cover !important; /* Fills without bars */
+    height: 100% !important;    /* Fills full height */
+    transform: skewX(15deg);    /* Counter-skews content */
 }
 
-
-
-/* Text & Button Column */
+/* --- Pane Text & Buttons --- */
 .pane-text-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    flex: 1;                /* Fills remaining width */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks text vertically */
+    height: 100%;           /* Full height container */
 }
 
 .pane-text-box p {
-    font-size: 2.25vh;
-    color: white;
-    margin-bottom: auto;
-    text-align: left;
-    padding-left: 10px;
-    border-left: 2px solid var(--pane-color);
-	transform: skewX(-15deg);
+    font-size: 2.25vh;      /* Readable text size */
+    color: white;           /* White text color */
+    margin-bottom: auto;    /* Pushes button down */
+    text-align: left;       /* Left aligned text */
+    padding-left: 10px;     /* Spacing from border */
+    border-left: 2px solid var(--pane-color); /* Left accent line */
+    transform: skewX(-15deg); /* Matches tile skew */
 }
 
-/* Big Hover Button */
 .pane-btn {
-    margin-top: 2vh;
-    width: 100%;
-    background: var(--pane-color);
-    transform: skewX(-15deg);
-    padding: 1.5vh;
-    color: black;
-    font-weight: 900;
-    text-align: center;
-    text-decoration: none;
-	border-radius: 5px;
-	transition: all 0.1s ease;
+    margin-top: 2vh;        /* Spacing above button */
+    width: 100%;            /* Full width button */
+    background: var(--pane-color); /* Colored background */
+    transform: skewX(-15deg); /* Skews the button */
+    padding: 1.5vh;         /* Internal padding */
+    color: black;           /* Black text color */
+    font-weight: 900;       /* Bold font weight */
+    text-align: center;     /* Centers text */
+    text-decoration: none;  /* Removes underline */
+    border-radius: 5px;     /* Rounded corners */
+    transition: all 0.1s ease; /* Fast hover transition */
 }
 
 .pane-btn span {
-    display: block;
-    transform: skewX(15deg);
+    display: block;         /* Block for transform */
+    transform: skewX(15deg); /* Counter-skews text */
 }
 
 .pane-btn:hover {
-    box-shadow: 0 0 70px var(--pane-color);
-    transform: scale(1.05);
-	color: #ffffff;
+    box-shadow: 0 0 70px var(--pane-color); /* Massive glow effect */
+    transform: scale(1.05); /* Slight zoom effect */
+    color: #ffffff;         /* White text on hover */
 }
 
-
-/* BOTTOM SECTION: 5 MINI TILES */
+/* ========================================= */
+/* BOTTOM MINI TILES                        */
+/* ========================================= */
 .pane-bottom {
-    height: 15vh;
-    display: flex;
-    gap: 1vw;
-    margin-top: 3vh;
-    padding-left: 2vw;
+    height: 15vh;           /* Fixed height container */
+    display: flex;          /* Enables flexbox layout */
+    gap: 1vw;               /* Spacing between tiles */
+    margin-top: 3vh;        /* Spacing from top */
 }
 
 .mini-tile {
-    flex: 1;
-    position: relative;
-    border: 3px solid var(--pane-color);
-    transform: skewX(-15deg);
-    overflow: hidden;
-    text-decoration: none;
-    transition: background 0.3s;
-	border-radius: 5px;
+    flex: 1;                /* Equal width tiles */
+    position: relative;     /* Context for absolute */
+    border: 3px solid var(--pane-color); /* Colored border */
+    transform: skewX(-15deg); /* Skews the tile */
+    overflow: hidden;       /* Clips internal content */
+    text-decoration: none;  /* Removes underline */
+    transition: all 0.3s;   /* Smooth hover transition */
+    border-radius: 5px;     /* Rounded corners */
 }
 
 .mini-bg {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transform: skewX(15deg) scale(1.4);
-    filter: grayscale(100%);
-	transition: all 0.5s;
-	
+    width: 100%;            /* Fills the tile */
+    height: 100%;           /* Fills the tile */
+    background-size: cover; /* Covers the area */
+    background-position: center; /* Centers the image */
+    transform: skewX(15deg) scale(1.4); /* Counter-skew & zoom */
+    filter: grayscale(100%); /* Black and white */
+    transition: all 0.5s;   /* Smooth filter transition */
 }
 
 .mini-title {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) skewX(15deg);
-    color: rgb(255, 255, 255);
-    font-weight: 100;
-    font-size: 1.5vh;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px black;
-    z-index: 2;
-    width: 100%;
-    text-align: center;
-	transition: all 0.3s ease;
+    position: absolute;     /* Anchors to tile */
+    top: 50%; left: 50%;    /* Centers vertically/horizontally */
+    transform: translate(-50%, -50%) skewX(15deg); /* Centers and skews */
+    color: rgb(255, 255, 255); /* White text color */
+    font-weight: 100;       /* Thin font weight */
+    font-size: 1.5vh;       /* Small text size */
+    text-transform: uppercase; /* All caps text */
+    text-shadow: 0 2px 4px black; /* Text readability shadow */
+    z-index: 2;             /* Sits above image */
+    width: 100%;            /* Full width text */
+    text-align: center;     /* Centers text */
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
 .mini-tile:hover .mini-bg {
-    transform: skewX(15deg) scale(1.6);
-    filter: grayscale(0%);
-	transition: all 0.3s ease;
+    transform: skewX(15deg) scale(1.6); /* Zooms in on hover */
+    filter: grayscale(0%);  /* Removes grayscale */
+    transition: all 0.3s ease; /* Fast transition */
 }
 
 .mini-tile:hover {
-    box-shadow: 0 0 35px var(--pane-color);
-    z-index: 5;
-	transition: all 0.3s ease;
+    box-shadow: 0 0 35px var(--pane-color); /* Glowing border */
+    z-index: 5;             /* Floats above others */
+    transition: all 0.3s ease; /* Fast transition */
 }
 
+/* ========================================= */
+/* SPECIFIC PANE OVERRIDES                  */
+/* ========================================= */
 
+/* --- RED PANE (Standard) --- */
+#red-pane {
+    left: 28vw;             /* Standard left position */
+    right: var(--side-margin); /* Standard right margin */
+}
 
+/* --- BLUE PANE (Shifted) --- */
+#blue-pane {
+    position: absolute;     /* Removes from flow */
+    top: 0;                 /* Aligns to top */
+    left: 45vw;             /* Shifted right alignment */
+    width: 50vw !important; /* Forced fixed width */
+    right: auto !important; /* Unlocks right edge */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    z-index: 100;           /* Sits above everything */
+}
 
+#blue-pane .pane-video-box {
+    width: 50% !important;  /* Custom width override */
+    height: 45vh !important;/* Custom height override */
+    aspect-ratio: auto !important; /* Unlocks aspect ratio */
+    padding: 0px !important; /* Removes padding completely */
+    display: flex;          /* Enables flexbox layout */
+    align-items: center;    /* Centers content vertically */
+    justify-content: center;/* Centers content horizontally */
+    overflow: hidden;       /* Clips bleeding content */
+    transform: skewX(-15deg); /* Matches tile skew */
+}
 
+#blue-pane .pane-video-box video,
+#blue-pane .pane-video-box img {
+    width: 100% !important; /* Fills the container */
+    height: 100% !important;/* Fills the container */
+    object-fit: cover;      /* Covers without distortion */
+    transform: skewX(15deg) scale(1.2); /* Counter-skew & zoom */
+}
 
+#blue-pane .pane-content-row {
+    display: flex;          /* Enables flexbox layout */
+    width: 100%;            /* Full width container */
+    gap: 0.5vw;             /* Tighter gap spacing */
+    align-items: flex-start;/* Aligns to top */
+}
+
+/* --- GREEN PANE (Formerly Purple - Shrinking) --- */
+#green-pane {
+    position: absolute;     /* Removes from flow */
+    top: 0;                 /* Aligns to top */
+    left: 62vw;             /* Shifted further right */
+    width: 33vw !important; /* Shrinks width significantly */
+    right: auto !important; /* Unlocks right edge */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    z-index: 100;           /* Sits above everything */
+}
+
+/* --- PURPLE PANE (Formerly Yellow - Skinniest) --- */
+#purple-pane {
+    position: absolute;     /* Removes from flow */
+    top: 0;                 /* Aligns to top */
+    left: 79vw;             /* Shifted furthest right */
+    width: 16vw !important; /* Very narrow width */
+    right: auto !important; /* Unlocks right edge */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    z-index: 100;           /* Sits above everything */
+}
+
+/* --- Shared Logic for Green & Purple Panes --- */
+#green-pane .pane-video-box,
+#purple-pane .pane-video-box {
+    width: 30% !important;  /* Narrow video box */
+    height: 45vh !important;/* Fixed height */
+    aspect-ratio: auto !important; /* Unlocks aspect ratio */
+    padding: 3px !important;/* Small padding border */
+    display: flex;          /* Enables flexbox layout */
+    align-items: center;    /* Centers content vertically */
+    justify-content: center;/* Centers content horizontally */
+    overflow: hidden;       /* Clips bleeding content */
+    transform: skewX(-15deg); /* Matches tile skew */
+    border: 3px solid var(--pane-color); /* Colored border */
+    box-shadow: 0 0 25px var(--pane-color); /* Glowing border */
+}
+
+#green-pane .pane-content-row,
+#purple-pane .pane-content-row {
+    display: flex;          /* Enables flexbox layout */
+    width: 100%;            /* Full width container */
+    gap: 0vw;               /* No gap between columns */
+    align-items: flex-start;/* Aligns to top */
+}
