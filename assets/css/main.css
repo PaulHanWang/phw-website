@@ -4707,7 +4707,8 @@ body {
     justify-content: center;
     align-items: center;
     background: #070707;     /* Solid background to hide the center of the gradient */
-    z-index: 10;             /* Elevated to stay above the stage */
+    background: url("../../images/Header-Gradient.png"); /* File named #4 */
+	z-index: 10;             /* Elevated to stay above the stage */
 }
 
 /* The actual glow element */
@@ -4877,6 +4878,7 @@ body {
     display: flex;          /* Enables flexbox layout */
     flex-direction: column; /* Stacks content vertically */
     background: #070707; /* Dark background overlay */
+
 }
 
 .video-container {
