@@ -2761,7 +2761,7 @@ body.homepage.is-preload #header:after {
 
 .homepage #banner {
 	position: relative;
-	background: #1d1d1d;
+	background: #070707;
 	text-align: center;
 	padding: 4.5em 0 0 0;
 	margin-bottom: -3em;
@@ -3602,9 +3602,7 @@ body.homepage.is-preload #header:after {
 }
 
 
-.BatangasFont {
-	font-family: 'Batangas', sans-serif;
-}
+
 
 .main-header {
 	width: 100%;
@@ -4643,7 +4641,7 @@ body.content-layer {
 /* ========================================= */
 :root {
     --header-height: 15vh;  /* Height of top header */
-    --bottom-margin: 8vh;   /* Spacing from bottom */
+    --bottom-margin: 0vh;   /* Spacing from bottom */
     --side-margin: 16vh;    /* Spacing from sides */
 }
 
@@ -4702,23 +4700,66 @@ body {
 /* MAIN HEADER                              */
 /* ========================================= */
 .main-header {
-    height: var(--header-height); /* Uses defined header height */
-    display: flex;          /* Enables flexbox layout */
-    flex-direction: column; /* Stacks text vertically */
-    justify-content: center;/* Centers content vertically */
-    align-items: center;    /* Centers content horizontally */
-    z-index: 30;            /* Sits above everything */
-    background: #1d1d1d;    /* Dark charcoal background */
+    position: relative;      /* Context for the glow layer */
+    height: var(--header-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #070707;     /* Solid background to hide the center of the gradient */
+    z-index: 10;             /* Elevated to stay above the stage */
 }
+
+/* The actual glow element */
+.header-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    
+    background: linear-gradient(90deg, #19d7fb, #6128e6);
+    
+    /* EDGE GLOW EFFECTS */
+    filter: blur(40px);      /* Adjust for softness */
+    transform: scale(1.05);  /* Slightly larger than the header to peek out */
+    opacity: 1;            /* Glow intensity */
+    
+
+    z-index: -100; 
+}
+
+/* --- BOTTOM GRADIENT GLOW --- */
+.footer-glow {
+    position: absolute;
+    bottom: -13%; /* Offset slightly off-screen to keep the "hottest" part hidden */
+    left: 0;
+    width: 100%;
+    height: 15%; /* Height of the glow zone */
+    
+    background: linear-gradient(90deg, #6128e6, #19d7fb);
+	background: linear-gradient(90deg, #19d7fb, #6128e6);
+    
+    /* GLOW SPECS */
+    filter: blur(20px);      /* Heavier blur for a more atmospheric feel */
+    opacity: 0.5;            /* Subtle enough not to distract from content */
+    z-index: -1;             /* Sits behind all content/tiles */
+    pointer-events: none;    /* Ensures it doesn't block clicks/scrolling */
+    
+    transform: scaleX(1.1);
+}
+
 
 .main-header h1 { 
     font-size: 4.25vh;      /* Large title text */
     font-weight: 900;       /* Extra bold weight */
+	text-shadow: 0 0 15px #000000 ; /* text glow effect */
 }
 
 .main-header h2 { 
     font-size: 2.25vh;      /* Smaller subtitle text */
     color: #ffffff;         /* White text color */
+	text-shadow: 0 0 10px #000000; /* text glow effect */
 }
 
 /* ========================================= */
@@ -4750,6 +4791,7 @@ body {
     position: absolute;     /* Absolute positioning */
     top: -8vh;              /* Offsets upwards */
     right: -90px;           /* Offsets to right */
+	text-shadow: 0 0 20px #19d5fba6; /* text glow effect */
 }
 
 .project-label span {
@@ -4779,7 +4821,7 @@ body {
     flex-direction: column; /* Stacks content vertically */
     text-decoration: none;  /* Removes link underlines */
     position: relative;     /* Context for children */
-    background-color: #333333; /* Dark tile background */
+    background-color: #070707; /* Dark tile background */
     
     --current-color: var(--default-color); /* Sets variable default */
     
@@ -4834,7 +4876,7 @@ body {
     height: 100%;           /* Fills tile height */
     display: flex;          /* Enables flexbox layout */
     flex-direction: column; /* Stacks content vertically */
-    background: rgba(20, 20, 20); /* Dark background overlay */
+    background: #070707; /* Dark background overlay */
 }
 
 .video-container {
@@ -5199,4 +5241,152 @@ body {
     width: 100%;            /* Full width container */
     gap: 0vw;               /* No gap between columns */
     align-items: flex-start;/* Aligns to top */
+
+}
+
+#gold-pane {
+    position: absolute;     /* Removes from flow */
+    top: 35vh;              /* Aligns to top */
+    left: 86.5vw;           /* Shifted furthest right */
+    width: 16vw !important; /* Very narrow width */
+    right: auto !important; /* Unlocks right edge */
+    display: flex;          /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    z-index: 100;           /* Sits above everything */
+}
+
+#gold-pane .pane-btn{
+	transform: skewX(-15deg) rotate(-90deg); /* Rotates entire button */
+	width: 15vw; /* Forces narrow width */
+}
+
+#gold-pane .pane-btn span {
+    transform: skewX(0deg); /* Counter-skews text */
+}
+
+#gold-pane .pane-btn:hover {
+    box-shadow: 0 0 70px var(--pane-color); /* Massive glow effect */
+    transform: rotate(-75deg);  /*Slight zoom effect */
+    color: #ffffff;         /* White text on hover */
+}
+
+
+.text-trigger {
+    color: var(--hover-color, #ffaa00); /* Uses your gold/hover variable */
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.3s ease;
+}
+
+.text-trigger:hover {
+    border-bottom: 1px dashed var(--hover-color, #ffaa00);
+    text-shadow: 0 0 10px var(--hover-color, #ffaa00);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact Info Button */
+/* Mirroring the Logo Footprint */
+.contact-link {
+    position: absolute;
+    top: 18px;
+    right: 50px;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+
+
+.contact-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+
+
+
+
+/* --- FIXED STATE --- */
+.contact-fixed {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    
+    /* Matching Logo Height & Style */
+    height: 110px; /* Forces height to match the logo image + padding */
+	width: 240px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 0 20px;
+
+    transform: scale(0.85) skewX(-15deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, #19d7fb80, #3528e680);
+    border-radius: 5px;
+}
+
+
+
+.contact-fixed .contact-icons {
+    transform: skewX(15deg); /* Counter-skew icons */
+}
+
+/* Tooltip / Pop-out logic */
+.email-copy-link {
+    position: relative;
+}
+
+.copied-message {
+    visibility: hidden;
+    width: 160px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1001;
+    
+    top: 130%; 
+    right: 0; 
+    
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.2;
+    pointer-events: none; 
+}
+
+/* Show tooltip on hover */
+.email-copy-link:hover .copied-message {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Styling for the Font Awesome icons */
+.contact-link .icon {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
 }

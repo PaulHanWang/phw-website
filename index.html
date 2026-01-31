@@ -48,6 +48,27 @@
 				<img src="images/Logo/LogoBlackfill.png" alt="Company Logo" class="site-logo">
 			</a>
 
+			<div id="contactLink" class="contact-link">
+				<ul class="contact-icons">
+					<li>
+						<a href="https://www.linkedin.com/in//" target="_blank" class="icon brands fa-linkedin-in">
+							<span class="label">Linkedin</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/" target="_blank" class="icon brands fa-github">
+							<span class="label">Github</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="icon solid fa-envelope email-copy-link" onclick="copyEmail(this, 'yourname@gmail.com')">
+							<span class="label">Email</span>
+							<span id="email-tooltip" class="copied-message">Click to copy to clipboard</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
 
 		</div>
 
@@ -64,7 +85,10 @@
 			<div id="home" class="home-anchor"></div>
 
 			<div class="sticky-wrapper">
+				<div class="header-glow"></div>
+				<div class="footer-glow"></div>
 				<header class="main-header">
+					
 					<h1>Official Website of Paul Han Wang.</h1>
 					<h2><a href="fs.html">Vehicle dynamics engineer</a>, <a href="sailing.html">sailing instructor</a>,
 						and
@@ -83,7 +107,7 @@
 					<div class="tile-row">
 
 						<a href="" class="tile" id="tile-1" data-pane="red-pane"
-							style="--default-color: #444444; --hover-color: #ff0000;">
+							style="--default-color: #2b2b2b; --hover-color: #ff0000;">
 							<div class="tile-content">
 								<div class="video-container">
 									<img src="images/EUFS/LTK_5338 - Short.JPG" class="tile-image" alt="EUFS Car">
@@ -99,7 +123,7 @@
 						</a>
 
 						<a href="" class="tile" id="tile-2" data-pane="blue-pane"
-							style="--default-color: #444444; --hover-color: #0000ff;">
+							style="--default-color: #2b2b2b; --hover-color: #0000ff;">
 							<div class="tile-content">
 								<div class="video-container">
 									<img src="images/Sailing/P_20230819_155117~2.jpg" class="tile-image" alt="Sailing">
@@ -115,7 +139,7 @@
 						</a>
 
 						<a href="#" class="tile" id="tile-3" data-pane="green-pane"
-							style="--default-color: #444444; --hover-color: #01c722;">
+							style="--default-color: #2b2b2b; --hover-color: #01c722;">
 							<div class="tile-content">
 								<div class="video-container">
 									<img src="images/Aviation/P_20230609_190344~2.jpg" class="tile-image"
@@ -132,7 +156,7 @@
 						</a>
 
 						<a href="#" class="tile" id="tile-4" data-pane="purple-pane"
-							style="--default-color: #444444; --hover-color: #8800FF;">
+							style="--default-color: #2b2b2b; --hover-color: #8800FF;">
 							<div class="tile-content">
 								<div class="video-container">
 									<img src="images/Art/Cinematography/20240521_152243(1).jpg" class="tile-image"
@@ -148,7 +172,8 @@
 							</div>
 						</a>
 
-						<a href="me.html" class="tile" style="--default-color: #444444; --hover-color: #ffaa00;">
+						<a href="" class="tile" id="tile-5" data-pane="gold-pane"
+							style="--default-color: #2b2b2b; --hover-color: #ffaa00;">
 							<div class="tile-content">
 								<div class="video-container">
 									<img src="images/Me/LTK_5266~2.JPG" class="tile-image" alt="Portrait">
@@ -366,6 +391,23 @@
 						</div>
 
 					</div><!--Art Full Pane-->
+
+
+					<div class="expanded-pane" id="gold-pane" style="--pane-color: #ffaa00;">
+						<div class="pane-top">
+							
+
+							<div class="pane-content-row">
+
+
+								<div class="pane-text-box">
+									<a href="me.html" class="pane-btn">
+										<span>EXPLORE</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div><!--Me Full Pane-->
 
 
 
@@ -895,19 +937,12 @@
 			updateAnimation();
 		});
 
-
-
-
-
-
-		// --- HELPER FUNCTION FOR SMOOTH SCROLLING ---
+		//ScrollToHome Helper Function
 		function scrollToHome() {
 			const homeElement = document.getElementById('home');
 			if (homeElement) {
-				// This is more reliable than scrollTo(0) because it finds the element
 				homeElement.scrollIntoView({ behavior: 'smooth' });
 			} else {
-				// Fallback if the ID #home doesn't exist
 				window.scrollTo({ top: 0, behavior: 'smooth' });
 			}
 		}
@@ -925,14 +960,11 @@
 						const video = entry.target;
 						const source = video.querySelector('source');
 
-						// Load the source
 						source.src = source.dataset.src;
 						video.load();
 
-						// Optional: Play automatically once loaded
 						video.play();
 
-						// Stop observing this specific video
 						observer.unobserve(video);
 					}
 				});
@@ -945,6 +977,61 @@
 			lazyVideos.forEach(video => {
 				videoObserver.observe(video);
 			});
+		});
+
+
+
+
+
+		// CONTACT INFO BUTTON
+		function copyEmail(element, email) {
+			navigator.clipboard.writeText(email).then(() => {
+				const tooltip = element.querySelector('.copied-message');
+				const originalText = "Click to copy to clipboard";
+				
+				tooltip.innerText = "Copied to clipboard!";
+				tooltip.style.backgroundColor = "#28a745";
+
+				setTimeout(() => {
+					tooltip.innerText = originalText;
+					tooltip.style.backgroundColor = "#333";
+				}, 2000);
+			});
+		}
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const logoLink = document.getElementById('logoLink');
+			const contactLink = document.getElementById('contactLink');
+			const bannerTarget = document.getElementById('banner');
+			const gradientLineTarget = document.getElementById('gradientline');
+
+			let scrollThreshold = 0;
+
+			function calculateThreshold() {
+				const bannerOffset = bannerTarget ? bannerTarget.offsetTop : 0;
+				const gradientOffset = gradientLineTarget ? gradientLineTarget.offsetTop : 0;
+				scrollThreshold = Math.max(bannerOffset, gradientOffset);
+			}
+
+			function handleScroll() {
+				const isFixed = window.scrollY >= scrollThreshold;
+
+				if (isFixed) {
+					logoLink?.classList.add('logo-fixed');
+					contactLink?.classList.add('contact-fixed');
+				} else {
+					logoLink?.classList.remove('logo-fixed');
+					contactLink?.classList.remove('contact-fixed');
+				}
+			}
+
+			calculateThreshold();
+			window.addEventListener('resize', () => {
+				calculateThreshold();
+				handleScroll();
+			});
+			window.addEventListener('scroll', handleScroll);
+			handleScroll();
 		});
 
 
