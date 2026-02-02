@@ -5288,7 +5288,7 @@ body {
 
 #blue-pane .pane-video-box video,
 #blue-pane .pane-video-box img {
-    width: 150% !important; /* Fills the container */
+    width: 300% !important; /* Fills the container */
     height: 100% !important;/* Fills the container */
     object-fit: cover;      /* Covers without distortion */
     transform: skewX(15deg) scale(1.2); /* Counter-skew & zoom */
