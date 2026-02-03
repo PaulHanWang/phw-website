@@ -518,16 +518,40 @@
 									<figcaption class="image-description">PMLTS Results in Matlab —
 										Photo by Paul Wang</figcaption>
 								</a>
-								<p>
-
+								<p class="unjustify-text">
+									This is a project developed for the University of Edinburgh Formula Student in the Fall of 2024 by Paul Wang (Vehicle Dynamics). The goal was to be able to make quick, high-level decisions for the 2026 in-hub motor concept class car, such as car mass goals, power and engine decisions, and aero kit decisions.
+									<br><br>
+									Note: As of 3/12/2024, the FSUK Endurance Track has not been implemented, and the points equations are not accurate, see new 2025 rules.
 								</p>
 							</section>
 							<section>
 								<header>
-									<h3>GGV</h3>
+									<h3>Description</h3>
 								</header>
-								<p>
-
+								<p class="unjustify-text">
+									<ul>
+									<li>Uses Matlab to simulate a perfect laptime for any car at any track.</li>
+									<li>By using specific car parameters, (mass, aerodynamic surfaces, drag, engine power, tyre grip) and track parameters (corner radius and distance between corners), the simulation calculates the perfect laptime with no variability. Each track and each car will provide the same laptime.</li>
+									<li>Provides 6 outputs:</li>
+										<ul>
+											<li>GGV Plot (Maximum lateral and longitudinal acceleration for each velocity)</li>
+											<li>Velocity (Forward velocity of the car throughout the lap)</li>
+											<li>Event Score and Points (gives time and score for each FSUK event) (work in progress)</li>
+											<li>Power Draw (Gives the power consumption throughout the lap)</li>
+											<li>Battery Drain (Total battery percentage throughout the lap)</li>
+											<li>Braking Force (Braking force throughout the lap)</li>
+										</ul>
+									There are 5 assumptions used in the making of this laptime simulator:
+										- The size, wheelbase, trackwidth, and weight transfer of the car are not taken into account.
+										- The width of the track, racing lines, weather conditions, and track grip levels are ignored, or assumed to be accounted for in the initial track rendering when converting coordinate systems into a single array of meshed track radius segments. (See OpenTrack for guidance)
+										- The car is either turning or accelerating, not both, there are no combined lateral and longitudinal forces
+										- Time is not a factor in calculating laptime, as a quasi-steady state assumption is made. Although time is used in calculating energy draw and battery drain, these calculations are done after the laptime is calculated, and has no effect on laptime.
+										- Since the simulated lap is perfect, and many values are estimated or calculated with assumptions of their own, we expect the model to produce a performance overestimate.
+									 
+									<li>Coffee</li>
+									<li>Tea</li>
+									<li>Milk</li>
+									</ul> 
 								</p>
 								<p>
 
