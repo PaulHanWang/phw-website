@@ -209,7 +209,24 @@
 										</div>
 									</a>
 
-									<a href="#eufs-poster" class="project-box"
+									<a href="#website" class="project-box"
+										style="background-color: #333333; display: flex;"
+										onmouseover="this.style.backgroundColor='#6128e677'"
+										onmouseout="this.style.backgroundColor='#333333'">
+										<div class="col-4">
+											<div class="image fit image-stretch project-image-bg"
+												style="background-image: url('images/Art/WebsiteLandingPage.png');">
+											</div>
+										</div>
+										<div class="col-8">
+											<h4>Website Design</h4>
+											<p class="unjustify-text">
+												The code behind it all.
+											</p>
+										</div>
+									</a>
+
+									<a href="#posters" class="project-box"
 										style="background-color: #333333; display: flex;"
 										onmouseover="this.style.backgroundColor='#6128e677'"
 										onmouseout="this.style.backgroundColor='#333333'">
@@ -219,26 +236,9 @@
 											</div>
 										</div>
 										<div class="col-8">
-											<h4>EUFS Poster</h4>
+											<h4>EUFS & Personal Posters</h4>
 											<p class="unjustify-text">
-												Showcasing the SISU 26E concept class.
-											</p>
-										</div>
-									</a>
-
-									<a href="#personal-poster" class="project-box"
-										style="background-color: #333333; display: flex;"
-										onmouseover="this.style.backgroundColor='#6128e677'"
-										onmouseout="this.style.backgroundColor='#333333'">
-										<div class="col-4">
-											<div class="image fit image-stretch project-image-bg"
-												style="background-image: url('images/Art/PersonalPosters/Poster_6.4B_NO_WORDS.png');">
-											</div>
-										</div>
-										<div class="col-8">
-											<h4>Personal Posters</h4>
-											<p class="unjustify-text">
-												For the whimsy of it.
+												Showcasing the SISU 26E or just for the whimsy of it.
 											</p>
 										</div>
 									</a>
@@ -437,7 +437,7 @@
 									<hr />
 									<section>
 										<header>
-											<h2><a id="logo">Logo, Business Card, and Website Design</a></h2>
+											<h2><a id="logo">Logo & Business Card Design</a></h2>
 										</header>
 										<a class="image featured"><img src="images\Art\1.png" alt="" />
 											<figcaption class="image-description">Personal Business Card — Created by
@@ -455,12 +455,11 @@
 									<hr />
 									<section>
 										<header>
-											<h2><a id="eufs-poster">EUFS Posters</a></h2>
+											<h2><a id="website">Website Design</a></h2>
 										</header>
-										<a class="image middle"><img
-												src="images\Art\EUFS 2025 POSTER - SISU 26E-7 1 of 1NEW.png" alt="" />
-											<figcaption class="image-description">Poster of SISU 26E created for
-												Edinburgh University Formula Student — Created by Paul Wang</figcaption>
+										<a class="image featured"><img
+												src="images/Art/WebsiteLandingPage.png" alt="" />
+											<figcaption class="image-description">Landing Page of paulhanwang.co.uk — Created by Paul Wang</figcaption>
 										</a>
 										<p>
 
@@ -473,31 +472,33 @@
 									<hr />
 									<section>
 										<header>
-											<h2><a id="personal-poster">Personal Posters</a></h2>
+											<h2><a id="posters">EUFS & Personal Posters</a></h2>
 										</header>
-										<a class="image middle"><img
-												src="images\Art\PersonalPosters\Poster_6.4B_NO_WORDS.png" alt="" />
-											<figcaption class="image-description">Laser ILCA 7 Poster — Created by Paul
-												Wang</figcaption>
-										</a>
-										<a class="image middle"><img
-												src="images\Art\PersonalPosters\No Words C-SCOW POSTER 7.1.png" alt="" />
-											<figcaption class="image-description">Melges C-Scow Poster — Created by Paul
-												Wang</figcaption>
-										</a>
-										<a class="image middle"><img
-												src="images\Art\PersonalPosters\Poster 2.5.png" alt="" />
-											<figcaption class="image-description">Impaler Poster — Created by Paul
-												Wang</figcaption>
-										</a>
-										<a class="image middle"><img
-												src="images\Art\PersonalPosters\Poster 3.4.png" alt="" />
-											<figcaption class="image-description">Cessna 242SP Poster — Created by Paul
-												Wang</figcaption>
-										</a>
-										<p>
+										<section class="carousel-component">
+											
+											<div class="main-display">
+												<img src="images/Art/EUFS 2025 POSTER - SISU 26E-7 1 of 1NEW.png" alt="Featured" class="image-featured" style="aspect-ratio: 16 / 9; width: 100%; height: auto; object-fit: contain; background: #000;">
+											</div>
 
-										</p>
+											<p id="image-caption">Poster of SISU 26E created for Edinburgh University Formula Student — Created by Paul Wang</p>
+
+											<div class="carousel-container">
+												<button class="nav-btn" onclick="scrollCarousel(this, -1)">&#10094;</button>
+												
+												<div class="thumbnail-track">
+													<img src="images/Art/EUFS 2025 POSTER - SISU 26E-7 1 of 1NEW.png" class="thumb" data-caption="Poster of SISU 26E created for Edinburgh University Formula Student — Created by Paul Wang" onclick="updateFeatured(this)">
+													<img src="images/Art/PersonalPosters/Poster_6.4B_NO_WORDS.png" class="thumb" data-caption="Laser ILCA 7 Poster — Created by Paul Wang" onclick="updateFeatured(this)">
+													<img src="images\Art\PersonalPosters\No Words C-SCOW POSTER 7.1.png" class="thumb" data-caption="Melges C-Scow Poster — Created by Paul Wang" onclick="updateFeatured(this)">
+													<img src="images\Art\PersonalPosters\Poster 2.5.png" class="thumb" data-caption="Impaler Poster — Created by Paul Wang" onclick="updateFeatured(this)">
+													<img src="images\Art\PersonalPosters\Poster 3.4.png" class="thumb" data-caption="Cessna 242SP Poster — Created by Paul Wang" onclick="updateFeatured(this)">
+												</div>
+
+												<button class="nav-btn" onclick="scrollCarousel(this, 1)">&#10095;</button>
+											</div>
+
+											
+										</section>
+										
 									</section>
 
 
@@ -616,7 +617,7 @@
 			const projectTiles = document.querySelectorAll('.project-box');
 
 			const contentTargets = document.querySelectorAll(
-				'#unreal-engine, #cinematography, #logo, #eufs-poster, #personal-poster'
+				'#unreal-engine, #cinematography, #logo, #website, #posters'
 			);
 
 			const observerOptions = {
