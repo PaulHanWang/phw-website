@@ -110,8 +110,16 @@
 					</li>
 				</ul>
 			</nav>
+			
 		<div id="header" style="height: 300vh; min-height: 100em;">
-
+			<style>
+				@media screen and (max-width: 768px) { /*MOBILE*/
+					#header {
+						height: 240vh !important;
+						min-height: 40em !important;
+					}
+				}
+			</style>
 			<div class="base-image"></div>
 			<div class="edge-map"></div>
 
