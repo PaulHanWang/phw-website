@@ -3929,11 +3929,12 @@ body {
 
 /* === Project Item Layout === */
 .project-item-entry {
-	background-color: #333333;
+	background-color: #111111;
 	box-shadow: 0 4px 6px -1px #19d7fb, 0 2px 4px -2px #6128e6;
-	border: 1px solid #e5e7eb;
+	border: 2px solid #e5e7eb;
 	padding: 1.5rem;
 	margin-bottom: 3rem;
+	border-radius: 8px;
 
 	display: flex;
 	flex-direction: column;
@@ -3949,7 +3950,6 @@ body {
 
 
 .project-media-box {
-	border: 2px solid #333;
 	border-radius: 0.5rem;
 
 	min-height: 10rem;
@@ -4420,9 +4420,10 @@ body.content-layer {
 
 .rec-tile {
     border: 4px solid #19d7fb;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 30px;
-    color: white;
+    color: #e5e7eb;
+	background-color: #111111;
 }
 
 
@@ -4433,6 +4434,7 @@ body.content-layer {
     border-bottom: 3px solid #6128e6;
     padding-bottom: 15px;
     margin-bottom: 20px;
+	
 }
 
 
@@ -4454,6 +4456,7 @@ body.content-layer {
     font-size: 2.2rem;
     margin: 0;
     letter-spacing: 1px;
+	
 }
 
 
@@ -4487,7 +4490,19 @@ body.content-layer {
 }
 
 .rec-emph {
-	color: #19d7fb
+	color: #19d7fb;
+}
+
+.rec-responsibility { /*Above and Beyond*/
+	color: #277df0 ;
+}
+
+.rec-leadership { 
+	color: #ffaa00;
+}
+
+.rec-workethic { 
+	color: #01ff8e;
 }
 
 
