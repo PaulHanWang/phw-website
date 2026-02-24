@@ -1964,6 +1964,42 @@ footer {
 
 
 
+.image-fourpane {
+	display: grid !important;
+	grid-template-columns: 1fr 1fr !important; 
+	gap: 20px; 
+	
+	margin: 0 0 2em 0;
+	width: 100%;
+}
+
+.image-fourpane img {
+	display: block !important;
+	width: 100% !important;
+	height: auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	aspect-ratio: 4/3 !important;
+	object-fit: cover !important;
+    object-position: center !important;
+}
+
+.image-fourpane .image-description {
+	grid-column: 1 / span 2;
+	margin-top: 10px
+}
+
+
+@media screen and (max-width: 736px) {
+	.image-fourpane {
+		grid-template-columns: 1fr !important; 
+		gap: 10px;
+	}
+	.image-fourpane .image-description {
+		grid-column: 1;
+	}
+}
+
 .image.centered {
 	display: block;
 	margin: 0 0 2em 0;
@@ -3383,6 +3419,7 @@ body.homepage.is-preload #header:after {
 		margin: 0 0 1em 0;
 	}
 
+
 	/* Actions */
 
 	form ul.actions {
@@ -3942,34 +3979,29 @@ body {
 	gap: 1.5rem;
 }
 
-/* 2. Style the Year Tag */
 .project-year-tag {
     position: absolute;
-    right: -2.7rem;      /* Pushes it outside the right border */
-    top: 50%;            /* Centers it vertically */
+    right: -2.7rem;
+    top: 50%; 
     transform: translateY(-50%); 
     
-    /* Vertical Text Magic */
     writing-mode: vertical-rl; 
     text-orientation: mixed;
     
-    /* Aesthetics */
-    color: #19d7fb;      /* Matching your shadow purple */
+    color: #19d7fb;   
     font-size: 1.8rem;
     text-transform: uppercase;
-    user-select: none;   /* Prevents accidental highlighting */
+    user-select: none;
 }
 
-/* 3. Responsive Check */
+
 @media (max-width: 900px) {
-    /* If the screen is too narrow, the tag might overlap the edge of the screen. 
-       We can hide it or move it inside for mobile. */
     .project-year-tag {
         display: none; 
     }
 }
 
-/* Media Query for Desktop (switches to side-by-side layout) */
+
 @media (min-width: 768px) {
 	.project-item-entry {
 		flex-direction: row;
