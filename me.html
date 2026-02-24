@@ -154,6 +154,18 @@
 
 								<div class="row gtr-50">
 
+									<a href="#me" class="project-box"
+										onmouseover="this.style.backgroundColor='#000000'"
+										onmouseout="this.style.backgroundColor='#111111'">
+
+										<div class="col-8">
+											<h4>About Me</h4>
+											<p class="unjustify-text">
+												University of Edinburgh & University of Minnesota
+											</p>
+										</div>
+									</a>
+
 									<a href="#education" class="project-box"
 										onmouseover="this.style.backgroundColor='#000000'"
 										onmouseout="this.style.backgroundColor='#111111'">
@@ -187,6 +199,9 @@
 						</div>
 					</div>
 					<div class="col-8 col-12-mobile imp-mobile" id="content">
+						<header>
+							<h3><a id="me">"It's a truly lucky man who knows what he wants to do in this world. Cause that man will never work a day in his life." -Carroll Shelby</a></h3>
+						</header>
 						<article id="main">
 
 							<a class="image featured"><img src="images/Me/LTK_5266~2.JPG" alt="" />
@@ -213,6 +228,7 @@
 									</div>
 
 									<div class="project-details-content">
+										<div class="project-year-tag">2024-2028</div>
 
 										<div class="project-title-row">
 											<div class="company-logo-box">
@@ -224,6 +240,7 @@
 										</div>
 
 										<p class="project-description-body">
+											– Bachelor of Engineering BEng Honours - Mechanical Engineering <br>
 											– Grade: First Class (A2). <br>
 											– Completed 10 classes with 160 UK credits<br>
 											– Edinburgh University Formula Student (EUFS) member <br>
@@ -240,6 +257,7 @@
 									</div>
 
 									<div class="project-details-content">
+										<div class="project-year-tag">2020-2024</div>
 
 										<div class="project-title-row">
 											<div class="company-logo-box">
@@ -260,6 +278,82 @@
 										</p>
 									</div>
 								</div>
+
+								<div class="project-item-entry">
+
+									<!--<div class="project-media-box">
+										<img src="images/Me/New York.png" alt="Project Media">
+									</div>-->
+
+									<div class="project-details-content">
+										<div class="project-year-tag">2022</div>
+
+										<div class="project-title-row">
+											<div class="company-logo-box">
+												<img src="images/Me/columbialogo.png"
+													alt="Project Media">
+											</div>
+
+											<h2 class="company-name-title">Columbia University</h2>
+										</div>
+
+										<p class="project-description-body">
+											– Cybersecurity: Cyberthreat Intelligence <br>
+											– Ranked Best in Class <br>
+											– Recommendation letter by Michael Gibbons <br>
+										</p>
+									</div>
+								</div>
+
+								<div class="project-item-entry">
+
+									<!--<div class="project-media-box">
+										<img src="images/Me/P_20240403_192342.jpg" alt="Project Media">
+									</div>-->
+
+									<div class="project-details-content">
+										<div class="project-year-tag">2017-2019</div>
+
+										<div class="project-title-row">
+											<div class="company-logo-box">
+												<img src="images/Me/Northwestern_Wildcats_logo.svg.png"
+													alt="Project Media">
+											</div>
+
+											<h2 class="company-name-title">Northwestern University</h2>
+										</div>
+
+										<p class="project-description-body">
+											– Python, Java, IOT <br>
+										</p>
+									</div>
+								</div>
+
+								<div class="project-item-entry">
+
+									<!--<div class="project-media-box">
+										<img src="images/Me/P_20240213_1911162.jpg" alt="Project Media">
+									</div>-->
+
+									<div class="project-details-content">
+										<div class="project-year-tag">2018-2020</div>
+
+										<div class="project-title-row">
+											<div class="company-logo-box">
+												<img src="images/Me/mctcLOGO.png"
+													alt="Project Media">
+											</div>
+
+											<h2 class="company-name-title">Minneapolis Community and Technical College</h2>
+										</div>
+
+										<p class="project-description-body">
+											– Grade: 4.0 <br>
+											– Took second year level courses. <br>
+										</p>
+									</div>
+								</div>
+
 								<section>
 
 
@@ -592,7 +686,7 @@
 			const projectTiles = document.querySelectorAll('.project-box');
 
 			const contentTargets = document.querySelectorAll(
-				'#education, #recommendations'
+				'#me, #education, #recommendations'
 			);
 
 			const observerOptions = {

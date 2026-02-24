@@ -3929,6 +3929,7 @@ body {
 
 /* === Project Item Layout === */
 .project-item-entry {
+	position: relative;
 	background-color: #111111;
 	box-shadow: 0 4px 6px -1px #19d7fb, 0 2px 4px -2px #6128e6;
 	border: 2px solid #e5e7eb;
@@ -3939,6 +3940,33 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
+}
+
+/* 2. Style the Year Tag */
+.project-year-tag {
+    position: absolute;
+    right: -2.7rem;      /* Pushes it outside the right border */
+    top: 50%;            /* Centers it vertically */
+    transform: translateY(-50%); 
+    
+    /* Vertical Text Magic */
+    writing-mode: vertical-rl; 
+    text-orientation: mixed;
+    
+    /* Aesthetics */
+    color: #19d7fb;      /* Matching your shadow purple */
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    user-select: none;   /* Prevents accidental highlighting */
+}
+
+/* 3. Responsive Check */
+@media (max-width: 900px) {
+    /* If the screen is too narrow, the tag might overlap the edge of the screen. 
+       We can hide it or move it inside for mobile. */
+    .project-year-tag {
+        display: none; 
+    }
 }
 
 /* Media Query for Desktop (switches to side-by-side layout) */
