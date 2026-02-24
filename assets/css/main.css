@@ -3979,25 +3979,36 @@ body {
 	gap: 1.5rem;
 }
 
+/* --- Year Tag Styles --- */
 .project-year-tag {
-    position: absolute;
-    right: -2.7rem;
-    top: 50%; 
-    transform: translateY(-50%); 
-    
-    writing-mode: vertical-rl; 
-    text-orientation: mixed;
-    
     color: #19d7fb;   
     font-size: 1.8rem;
     text-transform: uppercase;
     user-select: none;
 }
 
-
-@media (max-width: 900px) {
+/* Desktop: Vertical and Outside */
+@media (min-width: 768px) {
+    .project-item-entry {
+        position: relative;
+    }
     .project-year-tag {
-        display: none; 
+        position: absolute;
+        right: -2.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        writing-mode: vertical-rl;
+    }
+}
+
+/* Mobile: Horizontal and Below */
+@media (max-width: 767px) {
+    .project-year-tag {
+		color: #6128e6;  
+        display: block;
+        margin-top: -1rem;
+        text-align: right; /* Aligns it to the right edge but under the box */
+        writing-mode: horizontal-tb;
     }
 }
 
