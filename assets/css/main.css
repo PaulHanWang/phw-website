@@ -3793,8 +3793,8 @@ body.homepage.is-preload #header:after {
 
 .logo-link {
 	position: absolute;
-	top: -11px;
-	left: 25px;
+	top: -10px;
+	left: 20px;
 	z-index: 100;
 	transition: all 0.3s ease;
 }
