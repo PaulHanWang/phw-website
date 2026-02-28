@@ -1982,6 +1982,7 @@ footer {
 	aspect-ratio: 4/3 !important;
 	object-fit: cover !important;
 	object-position: center !important;
+	border-radius: 2px;
 }
 
 .image-fourpane .image-description {
@@ -6445,9 +6446,12 @@ body {
 	display: block;
 	color: #00f583;
 	font-size: 2em;
-	text-decoration: none;
 	cursor: pointer;
 	pointer-events: none;
+	text-decoration: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 .quote-author {
