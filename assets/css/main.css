@@ -15,6 +15,13 @@
 	Created 19/10/2025
 */
 
+:root {
+	--CompanyTeal: #19d7fb;
+	--CompanyPurple: #6128e6;
+	--CompanyMiddleBlue: #277df0; 
+
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -223,7 +230,7 @@ h4,
 h5,
 h6 {
 	font-weight: 400;
-	color: #19d7fb;
+	color: var(--CompanyTeal);
 	line-height: 1.25em;
 }
 
@@ -2309,7 +2316,7 @@ button,
 	position: relative;
 	display: inline-block;
 	background: #000000;
-	color: #19d7fb;
+	color: var(--CompanyTeal);
 	text-align: center;
 	border-radius: 0.5em;
 	text-decoration: none;
@@ -2858,7 +2865,7 @@ body.homepage.is-preload #header:after {
 	height: auto;
 	text-align: left;
 	border-radius: 0.3em;
-	box-shadow: 0 0.15em 0.25em 0 #19d7fb;
+	box-shadow: 0 0.15em 0.25em 0 var(--CompanyTeal);
 	min-width: 12em;
 	margin-top: -1em;
 	list-style: none;
@@ -2872,7 +2879,7 @@ body.homepage.is-preload #header:after {
 }
 
 .dropotron li {
-	border-top: solid 1px #19d7fb;
+	border-top: solid 1px var(--CompanyTeal);
 	color: #ffffff;
 	padding-left: 0;
 
@@ -2884,7 +2891,7 @@ body.homepage.is-preload #header:after {
 }
 
 .dropotron li:hover {
-	color: #19d7fb;
+	color: var(--CompanyTeal);
 }
 
 .dropotron li a,
@@ -2943,7 +2950,7 @@ body.homepage.is-preload #header:after {
 	left: 0;
 	width: 100%;
 	height: 10px;
-	background: linear-gradient(90deg, #19d7fb, #3528e6);
+	background: linear-gradient(90deg, var(--CompanyTeal), #3528e6);
 }
 
 #banner header>p {
@@ -2965,7 +2972,7 @@ body.homepage.is-preload #header:after {
 	left: 0;
 	width: 100%;
 	height: 8px;
-	background: linear-gradient(90deg, #19d7fb, #3528e6);
+	background: linear-gradient(90deg, var(--CompanyTeal), #3528e6);
 }
 
 
@@ -3082,7 +3089,7 @@ body.homepage.is-preload #header:after {
 	position: relative;
 	overflow: hidden;
 	padding: 4em 0 4em 0;
-	background: linear-gradient(90deg, #19d7fb, #3528e6);
+	background: linear-gradient(90deg, var(--CompanyTeal), #3528e6);
 	color: #fff;
 	z-index: 900;
 }
@@ -3549,7 +3556,7 @@ body.homepage.is-preload #header:after {
 		font-family: 'Font Awesome 5 Free';
 		font-weight: 900;
 		background: rgb(63, 63, 63);
-		color: #19d7fb;
+		color: var(--CompanyTeal);
 		text-align: center;
 		display: block;
 		font-size: 18px;
@@ -6540,7 +6547,7 @@ body {
     justify-content: center;
     gap: 15px;
 
-    background-color: #19d7fb;
+    background-color: var(--CompanyTeal);
 
     border: 4px solid #ffffff;
     border-radius: 15px;
