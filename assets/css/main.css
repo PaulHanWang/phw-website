@@ -6487,3 +6487,121 @@ body {
 .quote-hover-container:hover .quote-text-wrapper {
 	opacity: 0.9;
 }
+
+
+
+
+
+
+/* Link container */
+.linkedin-tile-link {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+
+    transition: transform 0.4s ease;
+}
+
+/* Glow layer */
+.linkedin-tile-link::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    border-radius: 20px;
+
+    box-shadow: 0 0 35px #ffffff;
+
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+/* Triangle */
+.linkedin-tile-link::before {
+    content: "";
+    position: absolute;
+
+    top: -17px;
+    left: 0px;
+
+    width: 0;
+    height: 0;
+
+    border-left: 50px solid #ffffff;
+    border-top: 50px solid transparent;
+
+    z-index: 0;
+}
+
+/* Main box */
+.linkedin-tile-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    background-color: #19d7fb;
+
+    border: 4px solid #ffffff;
+    border-radius: 15px;
+
+    padding: 10px 20px;
+
+    position: relative;
+    z-index: 1;
+
+    transition: background-color 0.6s ease;
+}
+
+/* Logo */
+.linkedin-tile-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+
+    filter: invert(0);
+    transition: filter 0.6s ease;
+}
+
+/* Text */
+.linkedin-tile-text {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+	transition: color 0.6s ease;
+	text-align: center;
+}
+
+/* Image container */
+.linkedin-tile-image-container {
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image */
+.linkedin-tile-content-image {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+/* Hover */
+.linkedin-tile-link:hover::after {
+    opacity: 1;
+}
+.linkedin-tile-link:hover .linkedin-tile-wrapper {
+    background-color: #000;
+}
+.linkedin-tile-link:hover .linkedin-tile-text {
+	color: #FFFFFF;
+}
+.linkedin-tile-link:hover .linkedin-tile-logo {
+    filter: invert(1);
+}
