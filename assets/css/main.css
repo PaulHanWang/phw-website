@@ -19,7 +19,7 @@
 	--CompanyTeal: #19d7fb;
 	--CompanyPurple: #6128e6;
 	--CompanyMiddleBlue: #277df0; 
-
+	--CompanyGreen: #00f583;
 }
 
 html {
@@ -2749,7 +2749,7 @@ body.homepage.is-preload #header:after {
 }
 
 /* --- HOVER STATES (ENTRY TRANSITION) --- */
-#nav:has(li:nth-child(-n+6):hover) .nav-frame {
+#nav:has(li:nth-child(-n+7):hover) .nav-frame {
 	transition:
 		transform var(--retract-speed) var(--swoop-timing) 0s,
 		clip-path var(--retract-speed) var(--swoop-timing) 0s,
@@ -2758,28 +2758,28 @@ body.homepage.is-preload #header:after {
 	clip-path: polygon(0% 0%, 100% 0%, calc(100% - 30px) 100%, 0% 100%);
 }
 
-
-#nav:has(li:nth-child(1):hover) .nav-frame {
+/* Nav Lines Length Settings */
+#nav:has(li:nth-child(2):hover) .nav-frame {
 	transform: translateY(-50%) scaleX(0.19);
 }
 
-#nav:has(li:nth-child(2):hover) .nav-frame {
+#nav:has(li:nth-child(3):hover) .nav-frame {
 	transform: translateY(-50%) scaleX(0.257);
 }
 
-#nav:has(li:nth-child(3):hover) .nav-frame {
+#nav:has(li:nth-child(4):hover) .nav-frame {
 	transform: translateY(-50%) scaleX(0.39);
 }
 
-#nav:has(li:nth-child(4):hover) .nav-frame {
+#nav:has(li:nth-child(5):hover) .nav-frame {
 	transform: translateY(-50%) scaleX(0.47);
 }
 
-#nav:has(li:nth-child(5):hover) .nav-frame {
+#nav:has(li:nth-child(6):hover) .nav-frame {
 	transform: translateY(-50%) scaleX(0.56);
 }
 
-#nav:has(li:nth-child(6):hover) .nav-frame {
+#nav:has(li:nth-child(7):hover) .nav-frame {
 	transform: translateY(-50%) scaleX(0.67);
 }
 
@@ -3388,6 +3388,14 @@ body.homepage.is-preload #header:after {
 	display: none;
 }
 
+/* Hide Mobile Contact Nav Icons in Desktop Mode */
+#nav a[href*="linkedin"],
+#nav a[href*="github"],
+#nav a[href*="youtube"],
+#nav a[href*="mailto"] {
+	display: none !important;
+}
+
 @media screen and (max-width: 736px) {
 
 	/* Basic */
@@ -3583,6 +3591,7 @@ body.homepage.is-preload #header:after {
 		z-index: 10002;
 		background: #1f1920;
 		box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.5);
+		padding-bottom: 300px !important;
 	}
 
 	#navPanel:before {
@@ -3666,6 +3675,57 @@ body.homepage.is-preload #header:after {
 	body.navPanel-visible #navPanel {
 		transform: translateX(0);
 	}
+
+	/* Mobile Contact Nav Icons */
+	#navPanel a[href*="linkedin"],
+	#navPanel a[href*="github"],
+	#navPanel a[href*="youtube"],
+	#navPanel a[href*="mailto"] {
+		display: inline-flex !important;
+		width: 25% !important;
+		height: 70px !important;
+		float: left !important;
+		align-items: center;
+		justify-content: center;
+		border-top: 0 !important;
+		color: transparent !important;
+		font-size: 0 !important;
+		position: relative;
+		padding: 0 !important;
+	}
+
+
+	#navPanel a[href*="linkedin"]::before,
+	#navPanel a[href*="github"]::before,
+	#navPanel a[href*="youtube"]::before,
+	#navPanel a[href*="mailto"]::before {
+		color: var(--CompanyGreen) !important;
+		font-size: 25px !important;
+		font-style: normal !important;
+		font-variant: normal !important;
+		text-rendering: auto !important;
+		-webkit-font-smoothing: antialiased !important;
+		font-family: "Font Awesome 5 Brands";
+		text-indent: 0 !important;
+		visibility: visible !important;
+	}
+
+
+	#navPanel a[href*="linkedin"]::before { content: '\f08c'; }
+	#navPanel a[href*="github"]::before   { content: '\f09b'; }
+	#navPanel a[href*="youtube"]::before  { content: '\f167'; }
+	#navPanel a[href*="mailto"]::before   { 
+		content: '\f0e0'; 
+		font-family: "Font Awesome 5 Free"; 
+		font-weight: 900; 
+	}
+
+
+	#navPanel a[href*="index.html#home"] {
+		clear: both !important;
+		border-top: solid 2px var(--CompanyGreen) !important;
+	}
+
 
 	/* Wrapper */
 
