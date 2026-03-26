@@ -4051,24 +4051,16 @@ body {
 	padding: 2rem 1rem;
 }
 
-/* === Heading Styles === */
-.main-page-heading {
-	text-align: center;
-	font-size: 2.25rem;
-	font-weight: bold;
-	margin-bottom: 2.5rem;
-	color: #1f2937;
-}
 
 /* === Project Item Layout === */
 .project-item-entry {
 	position: relative;
 	background-color: #111111;
-	box-shadow: 0 4px 6px -1px #19d7fb, 0 2px 4px -2px #6128e6;
+	box-shadow: 10px 4px 15px -1px #19d7fb, -10px -4px 15px -3px #6128e6;
 	border: 2px solid #e5e7eb;
 	padding: 1.5rem;
 	margin-bottom: 3rem;
-	border-radius: 8px;
+	border-radius: 7px;
 
 	display: flex;
 	flex-direction: column;
@@ -4077,11 +4069,12 @@ body {
 
 /* --- Year Tag Styles --- */
 .project-year-tag {
-	color: #19d7fb;
-	font-size: 1.8rem;
+	color: var(--CompanyTeal);
+	font-size: 2.5rem;
 	text-transform: uppercase;
 	user-select: none;
 }
+
 
 /* Desktop: Vertical and Outside */
 @media (min-width: 768px) {
@@ -4091,10 +4084,12 @@ body {
 
 	.project-year-tag {
 		position: absolute;
-		right: -2.5rem;
+		display: block;
+		left: -3.5rem;
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-50%) rotate(180deg);
 		writing-mode: vertical-rl;
+		text-shadow: 0 0 25px var(--CompanyTeal);
 	}
 }
 
@@ -4163,8 +4158,8 @@ body {
 }
 
 .company-logo-box {
-	width: 2rem;
-	height: 2rem;
+	width: 3rem;
+	height: 3rem;
 	background-color: transparent;
 	border-radius: 0.25rem;
 	flex-shrink: 0;
@@ -4183,10 +4178,10 @@ body {
 }
 
 .project-title-row h2 {
-	font-size: 1.5rem;
+	font-size: 2rem;
 	font-weight: 600;
 	line-height: 1.25;
-	color: #19d7fb;
+	color: var(--CompanyTeal);
 	margin: 0;
 }
 
