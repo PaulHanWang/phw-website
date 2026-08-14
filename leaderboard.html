@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Leaderboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="leaderboard-config" style="display: none;">
+        <div class="row-config" data-name="JIM/CREW" data-color="#FFFFFF" data-allow-outline="false"></div>
+        <div class="row-config" data-name="PAUL/DEKLAN" data-color="#19d7fb" data-allow-outline="true"></div>
+        <div class="row-config" data-name="JOE/LEIF" data-color="#FFFFFF" data-allow-outline="false"></div>
+        <div class="row-config" data-name="CARLY/CREW" data-color="#FFFFFF" data-allow-outline="false"></div>
+    </div>
+
+
+    <div class="app-container">
+        <div class="leaderboard-wrapper" id="leaderboard-display">
+            </div>
+
+        <div class="controls">
+            <button class="swap-btn" id="btn-swap-1-2">Swap 1&2</button>
+            <button class="swap-btn" id="btn-swap-2-3">Swap 2&3</button>
+            <button class="swap-btn" id="btn-swap-3-4">Swap 3&4</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const configElements = document.querySelectorAll('.row-config');
+    const displayBoard = document.getElementById('leaderboard-display');
+    const rootStyles = getComputedStyle(document.documentElement);
+    
+    // Helper to extract CSS variable times into JS milliseconds
+    const getMs = (varName) => {
+        const val = rootStyles.getPropertyValue(varName).trim();
+        return val.endsWith('ms') ? parseFloat(val) : parseFloat(val) * 1000;
+    };
+
+    let rowsData = [];
+    let isAnimating = false;
+
+    const upChevronsSVG = `
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+            <polyline points="18 9 12 3 6 9"></polyline>
+        </svg>
+    `;
+    const downChevronsSVG = `
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+            <polyline points="6 15 12 21 18 15"></polyline>
+        </svg>
+    `;
+
+    // Sleep utility for perfectly timed async animations
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    // Build the DOM
+    configElements.forEach((configEl, index) => {
+        let rank = index + 1;
+        let name = configEl.getAttribute('data-name');
+        let color = configEl.getAttribute('data-color') || '#FFFFFF';
+        let allowOutline = configEl.getAttribute('data-allow-outline') === 'true';
+
+        let rowEl = document.createElement('div');
+        rowEl.className = 'board-row-ui';
+        rowEl.innerHTML = `
+            <div class="row-inner">
+                <div class="outline-box fx-layer" style="border-color: ${color}"></div>
+                <div class="rank-text" style="color: ${color}">${rank}: ${name}</div>
+                <div class="chev-container fx-layer" style="color: ${color}"></div>
+            </div>
+        `;
+
+        displayBoard.appendChild(rowEl);
+        rowsData.push({ currentRank: rank, name, color, allowOutline, element: rowEl });
+    });
+
+    updateVisualPositions();
+
+    // Attach Event Listeners to all 3 buttons
+    document.getElementById('btn-swap-1-2').addEventListener('click', () => triggerSwap(1, 2));
+    document.getElementById('btn-swap-2-3').addEventListener('click', () => triggerSwap(2, 3));
+    document.getElementById('btn-swap-3-4').addEventListener('click', () => triggerSwap(3, 4));
+
+    // Main Swap Logic
+    async function triggerSwap(rankA, rankB) {
+        if (isAnimating) return; 
+        isAnimating = true;
+
+        let rowA = rowsData.find(r => r.currentRank === rankA);
+        let rowB = rowsData.find(r => r.currentRank === rankB);
+        if (!rowA || !rowB) return;
+
+        let promoted = rankA > rankB ? rowA : rowB; 
+        let demoted = rankA < rankB ? rowA : rowB;
+
+        // 1. Swap Ranks & Text
+        let tempRank = promoted.currentRank;
+        promoted.currentRank = demoted.currentRank;
+        demoted.currentRank = tempRank;
+
+        promoted.element.querySelector('.rank-text').innerText = `${promoted.currentRank}: ${promoted.name}`;
+        demoted.element.querySelector('.rank-text').innerText = `${demoted.currentRank}: ${demoted.name}`;
+
+        // 2. Setup Chevrons
+        const promotedChevs = promoted.element.querySelector('.chev-container');
+        const demotedChevs = demoted.element.querySelector('.chev-container');
+        promotedChevs.innerHTML = upChevronsSVG;
+        demotedChevs.innerHTML = downChevronsSVG;
+
+        // 3. Evaluate Transparency Logic
+        let rowToFade;
+        if (promoted.allowOutline !== demoted.allowOutline) {
+            rowToFade = promoted.allowOutline ? demoted : promoted;
+        } else {
+            rowToFade = demoted;
+        }
+        rowToFade.element.classList.add('is-faded');
+
+        // 4. Initial Outline & Chevron Reveal
+        const activeFxElements = [];
+        if (promoted.allowOutline) activeFxElements.push(promoted.element.querySelector('.outline-box'));
+        if (demoted.allowOutline) activeFxElements.push(demoted.element.querySelector('.outline-box'));
+        activeFxElements.push(promotedChevs, demotedChevs);
+
+        activeFxElements.forEach(el => el.classList.add('show-fx'));
+
+        // 5. Execute Slide and Wait
+        updateVisualPositions();
+        await sleep(getMs('--slide-time'));
+
+        // Slide finished, remove fade class
+        rowToFade.element.classList.remove('is-faded');
+
+        // 6. Wait for the user-configured delay before pulsing
+        await sleep(getMs('--flicker-delay'));
+
+        // 7. Execute Dynamic Pulse/Flicker Loop
+        const flickerCount = parseInt(rootStyles.getPropertyValue('--flicker-count').trim());
+        const pulseDuration = getMs('--pulse-duration');
+        const pulseInterval = getMs('--pulse-interval');
+
+        for (let i = 0; i < flickerCount; i++) {
+            // Pulse OFF (CSS transition handles the smooth fade)
+            activeFxElements.forEach(el => el.style.opacity = '0');
+            await sleep(pulseDuration);
+            
+            // Pulse ON
+            if (i < flickerCount - 1) {
+                activeFxElements.forEach(el => el.style.opacity = '1');
+                await sleep(pulseInterval);
+            }
+        }
+
+        // 8. Cleanup
+        activeFxElements.forEach(el => {
+            el.style.opacity = ''; // Clear inline styles
+            el.classList.remove('show-fx');
+        });
+        promotedChevs.innerHTML = '';
+        demotedChevs.innerHTML = '';
+
+        isAnimating = false; // Unlock
+    }
+
+    // ✨ UPDATED: Calculates positions using BOTH Row Height and Row Gap ✨
+    function updateVisualPositions() {
+        const rowHeight = parseInt(rootStyles.getPropertyValue('--row-height'));
+        const rowGap = parseInt(rootStyles.getPropertyValue('--row-gap')) || 0;
+        
+        rowsData.forEach(row => {
+            let yPos = (row.currentRank - 1) * (rowHeight + rowGap);
+            row.element.style.transform = `translateY(${yPos}px)`;
+        });
+    }
+});
+</script>

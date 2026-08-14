@@ -1,0 +1,150 @@
+:root {
+    /* ⚙️ CSS CONFIGURABLE VARIABLES ⚙️ */
+    --slide-time: 0.6s;            /* Duration of the vertical slide */
+    --transparency-time: 0.4s;     /* Duration of the momentary transparency fade */
+    
+    /* ⚙️ FLICKER CONFIGURATION ⚙️ */
+    --flicker-delay: 0.1s;         /* Wait time after slide before pulsing starts */
+    --flicker-count: 3;            /* Number of times it pulses off and on */
+    --pulse-duration: 0.15s;       /* How long the pulse stays invisible/dimmed */
+    --pulse-interval: 0.1s;        /* How long it stays visible between pulses */
+    --flicker-fade-time: 0.3s;     /* Duration of the smooth fade in/out */
+
+    /* ⚙️ LAYOUT VARIABLES ⚙️ */
+    --row-height: 50px;            /* The vertical size of the row itself */
+    --row-width: 380px;            /* ✨ NEW: Configure the width of the outline box here ✨ */
+    --row-gap: 0px;                /* Spacing between the rows */
+    --bg-color: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@import url("fontawesome-all.min.css");
+
+@font-face {
+    font-family: 'BatangasFont';
+    src: url('assets/webfonts/Batangas.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #FFFFFF;
+    font-family: 'BatangasFont', sans-serif;
+    display: flex;
+    justify-content: flex-start; /* Standardized to flex-start */
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* LEADERBOARD PLAY AREA */
+.leaderboard-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: calc((var(--row-height) * 4) + (var(--row-gap) * 3));
+    margin-bottom: 60px;
+}
+
+/* INDIVIDUAL ROW STYLING */
+.board-row-ui {
+    position: absolute;
+    width: 100%;
+    height: var(--row-height); 
+    display: flex;
+    justify-content: flex-start; /* Standardized to flex-start */
+    align-items: center;
+    transition: transform var(--slide-time) ease-in-out;
+}
+
+.row-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Keeps text left-justified inside the outline */
+    padding: 10px 20px;          /* Adjusted padding so text doesn't hit the left border */
+    width: var(--row-width);     /* ✨ Controls the width of the outline box ✨ */
+    height: 100%;
+}
+
+.rank-text {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+/* OUTLINE BOX & CHEVRONS (FX LAYERS) */
+.fx-layer {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--flicker-fade-time) ease-in-out; 
+}
+
+.outline-box {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 3px solid;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.chev-container {
+    position: absolute;
+    right: 15px; /* ✨ Natively locks to the right side of the outline box ✨ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.show-fx {
+    opacity: 1;
+}
+
+/* BUTTON CONTROLS */
+.controls {
+    display: flex;
+    gap: 20px;
+}
+
+.swap-btn {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 4px solid #FFFFFF;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.swap-btn:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* DYNAMIC FADE CLASS */
+.is-faded {
+    animation: fadeTransparent var(--transparency-time) ease-in-out forwards;
+}
+
+@keyframes fadeTransparent {
+    0%   { opacity: 1; }
+    30%  { opacity: 0; }
+    70%  { opacity: 0; }
+    100% { opacity: 1; }
+}
