@@ -4080,6 +4080,7 @@ body {
 @media (min-width: 768px) {
 	.project-item-entry {
 		position: relative;
+		flex-direction: row;
 	}
 
 	.project-year-tag {
@@ -4103,14 +4104,10 @@ body {
 		/* Aligns it to the right edge but under the box */
 		writing-mode: horizontal-tb;
 	}
+
+	
 }
 
-
-@media (min-width: 768px) {
-	.project-item-entry {
-		flex-direction: row;
-	}
-}
 
 
 .project-media-box {
@@ -4192,7 +4189,15 @@ body {
 }
 
 
+@media (max-width: 767px) {
 
+
+	.project-title-row h2 {
+		font-size: 1.7rem;
+	}
+
+	
+}
 
 
 
